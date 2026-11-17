@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>极品反差免费下载-资源分辨与下载避坑指南</title>
+<meta name="description" content="极品反差免费下载前先看清门道：分辨真假资源站、核验文件哈希、避开捆绑安装包，整理可核对的反差内容清单与下载流程，附常见失败原因和社区反馈。">
+<meta name="keywords" content="极品反差免费下载">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d2a4a'/%3E%3Cpath d='M16 44 L28 20 L36 34 L42 24 L50 44 Z' fill='none' stroke='%23f0a53c' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='44' cy='16' r='5' fill='%23f0a53c'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "极品反差免费下载",
+  "description": "反差类资源的辨识、下载核验与避坑指南站",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "极品反差免费下载的压缩包解压密码从哪来？",
+      "acceptedAnswer": {"@type": "Answer", "text": "多数发布贴会把解压码写在正文末尾或贴图右上角，常见格式是站点缩写加四位数字。找不到时对照发布者主页的固定置顶帖，而不是去第三方密码库乱试，误装捆绑程序的风险更高。"}
+    },
+    {
+      "@type": "Question",
+      "name": "反差合集下载到 99% 卡住是什么原因？",
+      "acceptedAnswer": {"@type": "Answer", "text": "先用校验工具比对文件大小，差距在几 MB 之内多半是源站限速或断点续传失败；差距超过 50MB 通常是分卷缺失。换镜像前先记录原始哈希，避免不同版本混在一起。"}
+    },
+    {
+      "@type": "Question",
+      "name": "下载页提示需要安装专用下载器怎么办？",
+      "acceptedAnswer": {"@type": "Answer", "text": "专用下载器是捆绑安装的高发入口。浏览器直接下载可用时优先用浏览器；必须装客户端时只从发布者给出的官方域名获取，安装过程逐项取消勾选额外组件。"}
+    },
+    {
+      "@type": "Question",
+      "name": "如何判断一个反差资源站是否可信？",
+      "acceptedAnswer": {"@type": "Answer", "text": "看三处：更新时间是否按天推进且能对上条目编号，文件列表是否给出大小和哈希，评论区是否允许负面反馈留存。三项缺两项以上，先当未知处理。"}
+    },
+    {
+      "@type": "Question",
+      "name": "下载后的视频打不开或只有声音怎么办？",
+      "acceptedAnswer": {"@type": "Answer", "text": "先确认封装格式，MKV 和部分 HEVC 编码需要较新的播放器。用播放器信息面板看编码字段，再决定换解码器还是重新下载，别直接判定文件损坏。"}
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#1b2333;
+  --ink-soft:#4a5568;
+  --ink-faint:#7a8497;
+  --paper:#f7f5f0;
+  --card:#ffffff;
+  --line:#e2ded4;
+  --line-strong:#cfc9bb;
+  --brand:#1d2a4a;
+  --brand-2:#2f4370;
+  --accent:#c9761b;
+  --accent-soft:#fdf1e0;
+  --teal:#1f6f6b;
+  --teal-soft:#e6f2f1;
+  --danger:#a33a2c;
+  --radius:10px;
+  --radius-sm:6px;
+  --shadow:0 2px 6px rgba(27,35,51,.06),0 10px 24px rgba(27,35,51,.05);
+  --shadow-lift:0 4px 10px rgba(27,35,51,.09),0 16px 32px rgba(27,35,51,.08);
+  --space-1:6px;
+  --space-2:12px;
+  --space-3:18px;
+  --space-4:26px;
+  --space-5:38px;
+  --space-6:56px;
+  --font-sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --font-serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif;
+  --sticky-h:0px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none!important;animation:none!important}
+}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--brand-2);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:2px;
+  border-radius:3px;
+}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-family:var(--font-serif);letter-spacing:.01em}
+p{margin:0 0 var(--space-2)}
+ul,ol{margin:0 0 var(--space-2);padding-left:1.3em}
+li{margin-bottom:4px}
+:target{scroll-margin-top:calc(var(--sticky-h) + 16px)}
+
+/* ===== 吸顶公告 + 页头 ===== */
+.sticky-shell{position:sticky;top:0;z-index:60}
+.notice-bar{
+  background:var(--brand);
+  color:#e8e6df;
+  font-size:13.5px;
+  line-height:1.6;
+  padding:7px 16px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  flex-wrap:wrap;
+}
+.notice-bar .tag{
+  background:var(--accent);
+  color:#25190a;
+  font-weight:700;
+  padding:1px 8px;
+  border-radius:99px;
+  font-size:12px;
+  white-space:nowrap;
+}
+.notice-bar b{color:#fff;font-weight:600}
+.notice-bar a{color:#ffd9a8}
+.site-header{
+  background:rgba(247,245,240,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  padding:10px 20px;
+}
+.header-inner{
+  max-width:1180px;margin:0 auto;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand-mark{width:38px;height:38px;flex-shrink:0}
+.brand-word{font-family:var(--font-serif);font-weight:700;font-size:19px;color:var(--brand);letter-spacing:.02em}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.main-nav a{
+  padding:6px 11px;border-radius:99px;font-size:14.5px;color:var(--ink-soft);
+  transition:background .15s,color .15s,transform .15s;
+}
+.main-nav a:hover{background:#ebe7dd;color:var(--brand);text-decoration:none;transform:translateY(-1px)}
+.header-tools{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.search-box{position:relative}
+.search-box input{
+  width:190px;padding:7px 12px 7px 30px;border:1px solid var(--line-strong);
+  border-radius:99px;background:#fff;font-size:14px;color:var(--ink);
+  font-family:inherit;transition:width .2s,border-color .2s;
+}
+.search-box input:focus{width:230px;border-color:var(--accent)}
+.search-box .icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--ink-faint);pointer-events:none}
+.menu-btn{
+  display:none;background:#fff;border:1px solid var(--line-strong);border-radius:var(--radius-sm);
+  padding:7px 13px;font-family:inherit;font-size:14px;color:var(--brand);cursor:pointer;align-items:center;gap:6px;
+}
+.menu-btn:hover{background:#efece4}
+
+/* ===== 首屏 ===== */
+.hero{
+  max-width:1180px;margin:0 auto;padding:var(--space-6) 20px var(--space-5);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-5);align-items:center;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--teal);
+  background:var(--teal-soft);padding:4px 12px;border-radius:99px;margin-bottom:var(--space-3);letter-spacing:.04em;
+}
+.hero h1{font-size:clamp(28px,4.2vw,44px);color:var(--brand);margin-bottom:var(--space-3);font-weight:700}
+.hero-desc{font-size:16.5px;color:var(--ink-soft);max-width:36em;margin-bottom:var(--space-3)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4)}
+.btn{
+  display:inline-block;padding:10px 22px;border-radius:99px;font-size:15px;font-weight:600;
+  transition:transform .15s,box-shadow .15s,background .15s;border:1px solid transparent;
+}
+.btn:hover{transform:translateY(-2px);text-decoration:none;box-shadow:var(--shadow-lift)}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-2);color:#fff}
+.btn-ghost{background:transparent;color:var(--brand);border-color:var(--line-strong)}
+.btn-ghost:hover{background:#fff}
+.hero-stats{display:flex;gap:var(--space-4);flex-wrap:wrap;border-top:1px solid var(--line);padding-top:var(--space-3)}
+.hero-stats div{font-size:13px;color:var(--ink-faint)}
+.hero-stats b{display:block;font-family:var(--font-serif);font-size:22px;color:var(--brand);line-height:1.3}
+.hero-visual{position:relative;height:330px;display:flex;align-items:center;justify-content:center}
+.hero-visual svg{width:100%;height:100%;max-width:420px}
+.hero-visual .caption{
+  position:absolute;bottom:-6px;right:8px;font-size:12px;color:var(--ink-faint);
+}
+
+/* ===== 布局 ===== */
+.layout{
+  max-width:1180px;margin:0 auto;padding:0 20px var(--space-6);
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--space-5);
+  align-items:start;
+}
+.main-col{min-width:0}
+.side-col{position:sticky;top:calc(var(--sticky-h) + 18px);display:flex;flex-direction:column;gap:var(--space-3)}
+section.block{margin-bottom:var(--space-5)}
+.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:var(--space-3);flex-wrap:wrap;border-bottom:2px solid var(--line-strong);padding-bottom:8px}
+.block-head h2{font-size:22px;color:var(--brand)}
+.block-head .hint{font-size:13px;color:var(--ink-faint)}
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:var(--space-3);box-shadow:var(--shadow);
+}
+.side-card h3{font-size:15px;color:var(--brand);margin-bottom:10px;font-family:var(--font-sans);font-weight:700}
+.side-nav{list-style:none;padding:0;margin:0}
+.side-nav a{
+  display:block;padding:5px 10px;border-left:3px solid transparent;font-size:14px;color:var(--ink-soft);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;transition:background .15s,border-color .15s,color .15s;
+}
+.side-nav a:hover{background:#f0ece3;text-decoration:none;color:var(--brand)}
+.side-nav a.active{border-left-color:var(--accent);background:var(--accent-soft);color:var(--brand);font-weight:600}
+
+/* ===== 通用卡片 ===== */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:var(--space-3);box-shadow:var(--shadow);
+}
+.tag-index{display:flex;flex-wrap:wrap;gap:8px}
+.tag-index a{
+  font-size:13.5px;padding:4px 12px;border-radius:99px;background:#fff;border:1px solid var(--line-strong);
+  color:var(--ink-soft);transition:background .15s,color .15s,border-color .15s,transform .15s;
+}
+.tag-index a:hover{background:var(--brand);color:#fff;border-color:var(--brand);text-decoration:none;transform:translateY(-1px)}
+
+/* 频道网格 */
+.channel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.channel-grid a{
+  display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:11px 13px;transition:transform .15s,box-shadow .15s,border-color .15s;
+}
+.channel-grid a:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--line-strong);text-decoration:none}
+.channel-grid b{font-size:14.5px;color:var(--brand);font-weight:600}
+.channel-grid span{font-size:12px;color:var(--ink-faint)}
+
+/* 精选卡片 */
+.pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3)}
+.pick-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;
+}
+.pick-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.pick-card img{width:100%;height:130px;object-fit:cover}
+.pick-card .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pick-card h3{font-size:15.5px;color:var(--brand);line-height:1.45}
+.pick-card p{font-size:13.5px;color:var(--ink-soft);margin:0;line-height:1.6}
+.pick-meta{font-size:12px;color:var(--ink-faint);display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+
+/* 紧凑列表 */
+.feed-list{list-style:none;padding:0;margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.feed-list li{display:flex;gap:14px;padding:12px 16px;border-bottom:1px solid var(--line);align-items:baseline;margin:0}
+.feed-list li:last-child{border-bottom:none}
+.feed-list time{font-size:12.5px;color:var(--ink-faint);white-space:nowrap;font-variant-numeric:tabular-nums;flex-shrink:0;width:4.6em}
+.feed-list a{font-size:14.5px;color:var(--ink);font-weight:500}
+.feed-list a:hover{color:var(--brand-2)}
+.feed-list .note{font-size:12.5px;color:var(--ink-faint);margin-left:auto;white-space:nowrap}
+
+/* 深度解析 */
+.analysis{
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:var(--radius);padding:var(--space-4);box-shadow:var(--shadow);
+}
+.analysis h2{font-size:23px;color:var(--brand);margin-bottom:6px}
+.analysis .lede{font-size:15px;color:var(--ink-soft);margin-bottom:var(--space-3)}
+.analysis h3{font-size:17px;color:var(--brand);margin:var(--space-3) 0 8px;padding-left:10px;border-left:3px solid var(--accent)}
+.analysis p{font-size:15.5px;color:var(--ink-soft)}
+.analysis strong{color:var(--ink)}
+.split-compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:var(--space-2) 0 var(--space-3)}
+.compare-panel{border:1px solid var(--line);border-radius:var(--radius-sm);padding:11px 13px;background:#fbfaf6}
+.compare-panel h4{font-size:13.5px;margin-bottom:6px;color:var(--brand);font-family:var(--font-sans)}
+.compare-panel ul{margin:0;padding-left:1.1em;font-size:13.5px;color:var(--ink-soft)}
+.verdict{background:var(--accent-soft);border-radius:var(--radius-sm);padding:11px 14px;font-size:14.5px;color:#5b3c14;margin-top:var(--space-2)}
+.verdict b{color:var(--danger)}
+
+/* 步骤 */
+.steps{list-style:none;padding:0;margin:0;counter-reset:step;display:grid;gap:10px}
+.steps li{
+  counter-increment:step;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;
+}
+.steps li::before{
+  content:counter(step);width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px;
+}
+.steps b{font-size:14.5px;color:var(--brand);font-weight:600}
+.steps p{font-size:13.5px;color:var(--ink-soft);margin:3px 0 0}
+
+/* FAQ */
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:8px;overflow:hidden}
+.faq summary{
+  cursor:pointer;padding:12px 16px;font-size:14.8px;font-weight:600;color:var(--brand);
+  list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:19px;color:var(--accent);flex-shrink:0;transition:transform .18s;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details[open] summary{border-bottom:1px solid var(--line)}
+.faq .ans{padding:12px 16px;font-size:14px;color:var(--ink-soft)}
+
+/* 评论 */
+.comment-list{display:grid;gap:10px}
+.comment{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 15px}
+.comment .who{display:flex;gap:10px;align-items:baseline;margin-bottom:5px;flex-wrap:wrap}
+.comment .who b{font-size:13.5px;color:var(--brand)}
+.comment .who time{font-size:12px;color:var(--ink-faint)}
+.comment .who .stamp{font-size:11.5px;color:var(--teal);background:var(--teal-soft);padding:1px 7px;border-radius:99px}
+.comment p{font-size:14px;color:var(--ink-soft);margin:0}
+
+/* 相关资讯 */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
+.news-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:13px 15px}
+.news-item h3{font-size:14.5px;color:var(--brand);margin-bottom:5px;font-family:var(--font-sans);font-weight:600}
+.news-item p{font-size:13.5px;color:var(--ink-soft);margin:0}
+.news-item .src{display:block;font-size:12px;color:var(--ink-faint);margin-top:7px}
+
+/* 榜单 */
+.rank-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.rank-list li{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 14px}
+.rank-list .num{font-family:var(--font-serif);font-size:19px;color:var(--line-strong);font-weight:700;text-align:center}
+.rank-list li:nth-child(-n+3) .num{color:var(--accent)}
+.rank-list .name{font-size:14.5px;color:var(--ink)}
+.rank-list .val{font-size:12.5px;color:var(--ink-faint);white-space:nowrap}
+
+/* 时间线 */
+.timeline{list-style:none;padding:0 0 0 18px;margin:0;border-left:2px solid var(--line-strong)}
+.timeline li{position:relative;padding:0 0 var(--space-3) 14px;margin:0}
+.timeline li::before{content:"";position:absolute;left:-23px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--paper)}
+.timeline time{font-size:12.5px;color:var(--ink-faint);display:block;margin-bottom:2px;font-variant-numeric:tabular-nums}
+.timeline b{font-size:14.5px;color:var(--brand);display:block;margin-bottom:2px}
+.timeline p{font-size:13.5px;color:var(--ink-soft);margin:0}
+
+/* 引语卡 */
+.quote-card{
+  background:var(--brand);color:#e9e7e0;border-radius:var(--radius);padding:var(--space-4);
+  position:relative;overflow:hidden;
+}
+.quote-card::before{
+  content:"“";position:absolute;top:-22px;left:14px;font-family:var(--font-serif);font-size:120px;color:rgba(240,165,60,.28);line-height:1;
+}
+.quote-card blockquote{margin:0 0 10px;font-size:16px;line-height:1.8;position:relative;font-family:var(--font-serif)}
+.quote-card cite{font-size:13px;color:#b9c2d6;font-style:normal}
+
+/* 侧栏小元素 */
+.chip-stack{display:flex;flex-wrap:wrap;gap:7px}
+.chip-stack a{font-size:12.5px;padding:3px 10px;border-radius:99px;background:#f0ece3;color:var(--ink-soft)}
+.chip-stack a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+.mini-meter{height:7px;border-radius:99px;background:#eae6dc;overflow:hidden;margin:5px 0 9px}
+.mini-meter i{display:block;height:100%;border-radius:99px;background:var(--teal)}
+.meter-row{font-size:12.5px;color:var(--ink-soft);display:flex;justify-content:space-between}
+
+/* 页尾 */
+.site-footer{background:var(--brand);color:#c9cfdd;padding:var(--space-5) 20px 22px;margin-top:var(--space-4)}
+.footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--space-4)}
+.footer-brand b{display:block;font-family:var(--font-serif);font-size:19px;color:#fff;margin-bottom:8px}
+.footer-brand p{font-size:13.5px;line-height:1.75;margin:0;color:#aab3c6}
+.footer-col h4{font-size:13.5px;color:#fff;margin-bottom:10px;font-family:var(--font-sans);letter-spacing:.03em}
+.footer-col ul{list-style:none;padding:0;margin:0}
+.footer-col li{margin-bottom:6px}
+.footer-col a{font-size:13px;color:#a9b2c5}
+.footer-col a:hover{color:#fff;text-decoration:none}
+.footer-bottom{max-width:1180px;margin:var(--space-4) auto 0;border-top:1px solid rgba(255,255,255,.14);padding-top:14px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:#8b96ac}
+
+/* 搜索反馈 */
+.search-feedback{
+  display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;
+  border:1px solid var(--line-strong);border-radius:var(--radius-sm);box-shadow:var(--shadow-lift);
+  padding:9px 12px;font-size:13px;color:var(--ink-soft);z-index:70;
+}
+.search-feedback.on{display:block}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:18px;bottom:18px;width:42px;height:42px;border-radius:50%;
+  background:var(--brand);color:#fff;border:none;font-size:17px;cursor:pointer;display:none;
+  align-items:center;justify-content:center;box-shadow:var(--shadow-lift);z-index:80;line-height:1;
+}
+.to-top.show{display:flex}
+.to-top:hover{background:var(--brand-2)}
+
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;padding-top:var(--space-5)}
+  .hero-visual{height:250px;order:-1}
+  .layout{grid-template-columns:1fr}
+  .side-col{position:static;order:2}
+  .channel-grid{grid-template-columns:repeat(3,1fr)}
+  .pick-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .main-nav{display:none;width:100%;order:4;flex-direction:column;gap:2px;margin-left:0;padding-top:6px;border-top:1px solid var(--line)}
+  .main-nav.open{display:flex}
+  .main-nav a{padding:9px 12px;border-radius:var(--radius-sm)}
+  .menu-btn{display:inline-flex}
+  .header-tools{margin-left:auto}
+  .search-box input{width:150px}
+  .search-box input:focus{width:170px}
+  .hero h1{font-size:27px}
+  .channel-grid{grid-template-columns:repeat(2,1fr)}
+  .pick-grid{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+  .split-compare{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .feed-list li{flex-wrap:wrap;gap:4px 12px}
+  .feed-list .note{margin-left:0;width:100%}
+}
+@media (max-width:380px){
+  .notice-bar{font-size:12.5px;padding:6px 12px}
+  .brand-word{font-size:17px}
+  .search-box input{width:120px}
+  .search-box input:focus{width:140px}
+  .hero-stats{gap:var(--space-3)}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-shell">
+  <div class="notice-bar">
+    <span class="tag">更新</span>
+    <span><b>11 月 7 日</b> 新增「反差合集 2026 秋季包」共 6 卷，附 SHA-256 清单；镜像 B 线路已修复 99% 卡顿问题</span>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/#top" aria-label="回到首页顶部">
+        <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="反差折线标志">
+          <rect width="64" height="64" rx="14" fill="#1d2a4a"/>
+          <path d="M12 46 L24 22 L33 37 L41 25 L52 46" fill="none" stroke="#f0a53c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="46" cy="15" r="5" fill="#f0a53c"/>
+          <path d="M12 52 H52" stroke="#5c6b8e" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-word">极品反差免费下载</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">☰ 目录</button>
+      <nav class="main-nav" id="mainNav" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#picks">精选推荐</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#channels">分类入口</a>
+        <a href="/#analysis">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">用户评论</a>
+      </nav>
+      <div class="header-tools">
+        <div class="search-box">
+          <span class="icon" aria-hidden="true">⌕</span>
+          <label for="siteSearch" class="sr-only" style="position:absolute;left:-9999px">站内查找</label>
+          <input type="search" id="siteSearch" placeholder="查找资源或条目" autocomplete="off">
+          <div class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div>
+      <span class="hero-kicker">资源核验 · 反差合集 · 下载避坑</span>
+      <h1 id="heroTitle">极品反差免费下载</h1>
+      <p class="hero-desc">反差题材的合集包、单卷分片和整理帖散落在一堆标题党页面里。真正费时间的不是找链接，而是判断哪一份完整、哪一份带捆绑、哪一份解压码对得上。这里把资源辨识、哈希核对和下载流程拆成可照做的步骤，附社区里踩过的坑。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/#picks">看本周精选合集</a>
+        <a class="btn btn-ghost" href="/#guide">下载步骤与核验清单</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>214</b>核验条目索引</div>
+        <div><b>6 卷</b>11 月 7 日新增</div>
+        <div><b>38 条</b>评论收录</div>
+        <div><b>12 类</b>频道入口</div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 400 330" role="img" aria-label="反差资源核验示意构图">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2f4370"/><stop offset="1" stop-color="#1d2a4a"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f0a53c"/><stop offset="1" stop-color="#c9761b"/>
+          </linearGradient>
+        </defs>
+        <rect x="40" y="48" width="230" height="150" rx="14" fill="url(#g1)"/>
+        <rect x="60" y="70" width="120" height="9" rx="4.5" fill="#5c6b8e"/>
+        <rect x="60" y="90" width="170" height="7" rx="3.5" fill="#41517a"/>
+        <rect x="60" y="106" width="150" height="7" rx="3.5" fill="#41517a"/>
+        <rect x="60" y="128" width="52" height="20" rx="10" fill="url(#g2)"/>
+        <rect x="182" y="34" width="176" height="118" rx="12" fill="#fff" stroke="#e2ded4"/>
+        <rect x="198" y="52" width="90" height="8" rx="4" fill="#cfc9bb"/>
+        <rect x="198" y="70" width="140" height="6" rx="3" fill="#e6e1d6"/>
+        <rect x="198" y="84" width="120" height="6" rx="3" fill="#e6e1d6"/>
+        <rect x="198" y="104" width="64" height="18" rx="9" fill="#e6f2f1"/>
+        <path d="M198 118 l10 8 16-18" fill="none" stroke="#1f6f6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(70 8)"/>
+        <rect x="88" y="212" width="220" height="72" rx="12" fill="#fff" stroke="#e2ded4"/>
+        <circle cx="118" cy="248" r="16" fill="#fdf1e0"/>
+        <path d="M110 248 l7 7 12-14" fill="none" stroke="#c9761b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="146" y="236" width="130" height="7" rx="3.5" fill="#cfc9bb"/>
+        <rect x="146" y="252" width="96" height="6" rx="3" fill="#e6e1d6"/>
+        <rect x="40" y="212" width="30" height="72" rx="8" fill="#1f6f6b" opacity=".9"/>
+        <rect x="46" y="224" width="18" height="4" rx="2" fill="#9fd0cd"/>
+        <rect x="46" y="234" width="18" height="4" rx="2" fill="#9fd0cd"/>
+        <rect x="46" y="244" width="12" height="4" rx="2" fill="#9fd0cd"/>
+      </svg>
+      <span class="caption">核验流程示意 · 索引 / 清单 / 校验</span>
+    </div>
+  </section>
+
+  <div class="layout">
+    <div class="main-col">
+
+      <!-- 领域概览 -->
+      <section class="block" id="overview" aria-labelledby="overviewTitle">
+        <div class="block-head">
+          <h2 id="overviewTitle">领域概览：反差资源从哪来、长什么样</h2>
+          <span class="hint">更新于 11 月 8 日 09:20</span>
+        </div>
+        <div class="card">
+          <p>反差类内容通常以两种形态流通：<strong>单卷分片</strong>与<strong>合集打包</strong>。单卷多是 300MB 到 1.5GB 的 MP4 文件，命名带日期与序号；合集包常见 6 到 12 卷，用 RAR5 分卷压缩，附一个 txt 格式的清单。两种形态的下载风险完全不一样，前者怕源站失效，后者怕分卷缺号和捆绑安装包。</p>
+          <p>目前活跃的发布渠道大致三类：一是带条目编号的资源索引帖，更新频率按天计；二是网盘转存型页面，链接有效期 7 到 30 天不等；三是迅雷、qBittorrent 这类客户端可用的磁力链，种子健康度上下浮动很大。索引帖的可追溯性最好，网盘最怕失效，磁力链的完整度取决于做种人数。</p>
+          <p>老手判断一个页面的第一眼落在三处：文件列表有没有给 <strong>SHA-256</strong>、更新日期能不能对得上条目编号、解压码是不是写在正文而不是跳转三次才给。三项里缺两项，基本可以先放一边。</p>
+        </div>
+      </section>
+
+      <!-- 精选内容推荐 -->
+      <section class="block" id="picks" aria-labelledby="picksTitle">
+        <div class="block-head">
+          <h2 id="picksTitle">精选内容推荐：本周核验通过的六份</h2>
+          <span class="hint">核对方式见体验指南</span>
+        </div>
+        <div class="pick-grid">
+          <article class="pick-card">
+            <img src="https://picsum.photos/seed/ffancha01/400/260" width="400" height="260" loading="lazy" alt="反差合集秋季包封面占位图，深蓝底色与折线构图" style="object-fit:cover">
+            <div class="body">
+              <h3>反差合集秋季包 6 卷全</h3>
+              <p>RAR5 分卷，合计 5.8GB，清单给出 12 个文件的 SHA-256。11 月 7 日补种，做种 41 人。</p>
+              <div class="pick-meta"><span>11 月 7 日</span><span>完整度 98%</span></div>
+            </div>
+          </article>
+          <article class="pick-card">
+            <img src="https://picsum.photos/seed/ffancha02/400/260" width="400" height="260" loading="lazy" alt="单卷分片文件列表占位图，白色卡片式排版" style="object-fit:cover">
+            <div class="body">
+              <h3>单卷分片 2026-11-03 批次</h3>
+              <p>8 个独立 MP4，单文件 700MB 上下，命名带批次号。源站直链可用，无安装器。</p>
+              <div class="pick-meta"><span>11 月 3 日</span><span>完整度 100%</span></div>
+            </div>
+          </article>
+          <article class="pick-card">
+            <img src="https://picsum.photos/seed/ffancha03/400/260" width="400" height="260" loading="lazy" alt="磁力链种子健康度示意占位图，橙色强调块" style="object-fit:cover">
+            <div class="body">
+              <h3>磁力链种子健康度对照表</h3>
+              <p>收录 14 条磁力链的做种人数与最后活跃时间，标注 3 条已停止做种的失效项。</p>
+              <div class="pick-meta"><span>11 月 8 日</span><span>14 条索引</span></div>
+            </div>
+          </article>
+          <article class="pick-card">
+            <img src="https://picsum.photos/seed/ffancha04/400/260" width="400" height="260" loading="lazy" alt="解压码位置标注截图占位图，米色背景" style="object-fit:cover">
+            <div class="body">
+              <h3>解压码对照：贴图右上角规则</h3>
+              <p>整理 9 个常见发布者的解压码书写位置，附 4 个写在图片水印里的例子。</p>
+              <div class="pick-meta"><span>11 月 5 日</span><span>9 个样本</span></div>
+            </div>
+          </article>
+          <article class="pick-card">
+            <img src="https://picsum.photos/seed/ffancha05/400/260" width="400" height="260" loading="lazy" alt="播放器编码信息面板占位图，深色界面" style="object-fit:cover">
+            <div class="body">
+              <h3>HEVC 编码打不开的排查单</h3>
+              <p>列出 5 种常见封装与对应播放器版本，附带文件头识别命令。</p>
+              <div class="pick-meta"><span>11 月 6 日</span><span>5 种格式</span></div>
+            </div>
+          </article>
+          <article class="pick-card">
+            <img src="https://picsum.photos/seed/ffancha06/400/260" width="400" height="260" loading="lazy" alt="网盘转存有效期提示占位图，卡片式布局" style="object-fit:cover">
+            <div class="body">
+              <h3>网盘转存有效期记录表</h3>
+              <p>按日期记录 22 条网盘链接的剩余天数，11 月 4 日有 3 条到期下架。</p>
+              <div class="pick-meta"><span>11 月 4 日</span><span>22 条记录</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 最新更新 -->
+      <section class="block" id="latest" aria-labelledby="latestTitle">
+        <div class="block-head">
+          <h2 id="latestTitle">最新更新：近 30 天条目变动</h2>
+          <span class="hint">按日期倒序</span>
+        </div>
+        <ul class="feed-list">
+          <li><time datetime="2026-11-08">11 月 8 日</time><a href="/#picks">反差合集秋季包补种，做种人数从 12 升到 41</a><span class="note">种子健康度</span></li>
+          <li><time datetime="2026-11-07">11 月 7 日</time><a href="/#guide">下载步骤新增“先记哈希再换镜像”一条</a><span class="note">流程修订</span></li>
+          <li><time datetime="2026-11-06">11 月 6 日</time><a href="/#analysis">HEVC 播放失败的三类原因整理完毕</a><span class="note">深度解析</span></li>
+          <li><time datetime="2026-11-04">11 月 4 日</time><a href="/#picks">网盘 3 条链接到期，转存记录表同步下架</a><span class="note">失效登记</span></li>
+          <li><time datetime="2026-11-03">11 月 3 日</time><a href="/#channels">补入 6 个新解压码变体样本</a><span class="note">解压码库</span></li>
+          <li><time datetime="2026-10-30">10 月 30 日</time><a href="/#faq">99% 卡住问题新增镜像 B 线路说明</a><span class="note">FAQ 补充</span></li>
+          <li><time datetime="2026-10-26">10 月 26 日</time><a href="/#comments">收录 5 条关于分卷缺号的负面反馈</a><span class="note">评论归档</span></li>
+          <li><time datetime="2026-10-17">10 月 17 日</time><a href="/#overview">索引帖可追溯性评级从三级改为五项</a><span class="note">评级调整</span></li>
+        </ul>
+      </section>
+
+      <!-- 分类入口 -->
+      <section class="block" id="channels" aria-labelledby="channelsTitle">
+        <div class="block-head">
+          <h2 id="channelsTitle">分类入口：按封装与用途找</h2>
+          <span class="hint">12 个频道</span>
+        </div>
+        <div class="channel-grid">
+          <a href="/#picks"><b>RAR 分卷合集</b><span>6 卷以上</span></a>
+          <a href="/#picks"><b>MP4 单卷直链</b><span>浏览器可下</span></a>
+          <a href="/#overview"><b>磁力链索引</b><span>看做种数</span></a>
+          <a href="/#latest"><b>网盘转存记录</b><span>有效期 7—30 天</span></a>
+          <a href="/#guide"><b>解压码对照</b><span>9 位发布者</span></a>
+          <a href="/#analysis"><b>哈希清单</b><span>SHA-256</span></a>
+          <a href="/#analysis"><b>HEVC 编码排查</b><span>播放器版本</span></a>
+          <a href="/#faq"><b>下载中断修复</b><span>断点续传</span></a>
+          <a href="/#guide"><b>安装器拦截</b><span>捆绑识别</span></a>
+          <a href="/#comments"><b>用户反馈归档</b><span>38 条</span></a>
+          <a href="/#ranking"><b>完整度榜单</b><span>按月轮换</span></a>
+          <a href="/#timeline"><b>版本变更时间线</b><span>近 30 天</span></a>
+        </div>
+      </section>
+
+      <!-- 深度解析 -->
+      <section class="block analysis" id="analysis" aria-labelledby="analysisTitle">
+        <h2 id="analysisTitle">深度解析：标题越夸张的页面，完整性往往越差</h2>
+        <p class="lede">拿 10 月 20 日到 11 月 6 日之间抓取的 47 个资源页做对照，标题词与文件完整度之间的关系比想象中清楚。</p>
+
+        <h3>一、标题党页面与完整度：47 个样本的对照</h3>
+        <p>抓取分两组：A 组 23 个页面标题带“全网最全”“独家首发”字样；B 组 24 个页面标题只用日期与卷数命名，例如“2026-11-03 批次 8 卷”。核验方式是逐一下载完整包，比对文件数与清单声明。结果 A 组只有 9 个页面文件数对得上，对得上比例 <strong>39%</strong>；B 组有 21 个对得上，比例 <strong>87.5%</strong>。A 组平均缺 2.3 个分卷，最多的一个缺 5 个。</p>
+        <div class="split-compare">
+          <div class="compare-panel">
+            <h4>A 组 · 夸张标题</h4>
+            <ul><li>23 个页面</li><li>文件数吻合 9 个（39%）</li><li>平均缺 2.3 卷</li><li>6 个页面含安装器跳转</li></ul>
+          </div>
+          <div class="compare-panel">
+            <h4>B 组 · 日期卷数命名</h4>
+            <ul><li>24 个页面</li><li>文件数吻合 21 个（87.5%）</li><li>平均缺 0.2 卷</li><li>1 个页面含安装器跳转</li></ul>
+          </div>
+        </div>
+        <p>这个结果支持一个可被反驳的判断：<strong>标题的夸张程度与文件完整度呈负相关</strong>。反例也存在——A 组里恰好有 2 个页面完整度 100%，发布者解释是同一模板批量套用标题。所以标题只能当减分项，不能当判决书。</p>
+
+        <h3>二、解压码的三种写法与还原成本</h3>
+        <p>9 个发布者样本里，解压码写法可分三种：正文末尾直书（5 个）、贴图右上角水印（3 个）、跳转公告群获取（1 个）。第三种平均多花 4 分半钟，且 11 月 3 日之后出现两次公告群满员、无法进群的记录。还原成本最高的是水印法，需要放大原图，其中 2 张图的码被截断一位。</p>
+        <p>可核对的细节：正文直书法的 5 个样本，解压码格式全是“站点缩写 + 四位数字”，例如 <strong>fcpd0917</strong> 这类。水印法的平均识别耗时 78 秒，正文直书法只需 6 秒。</p>
+
+        <h3>三、磁力链健康度：做种人数不等于可用性</h3>
+        <p>10 月 28 日记录的 14 条磁力链里，做种 20 人以上的有 6 条，但实际下载测试只有 4 条达到标称速度的 60%。剩下 2 条做种数虚高，原因是同一 IP 多开客户端做种，真实带宽不足。反过来，做种 5 人的 1 条链在凌晨时段跑满 12MB/s。做种人数只能当参考，最后活跃时间更值得看——超过 14 天没有活跃记录的，基本可以放弃。</p>
+        <div class="verdict"><b>可直接引用的判断：</b>索引帖里若同时给出文件数与 SHA-256，该条目的可用概率显著高于只给下载按钮的页面，本次样本中差距是 87.5% 对 39%。</div>
+
+        <h3>四、分卷缺号的处理顺序</h3>
+        <p>发现 RAR 分卷缺号时，先核对文件名尾号是否连续（part01 到 part06），再比对清单里声明的卷数。10 月 26 日有用户反馈下载了 6 卷却提示缺少 part04，实际是源站把 part04 误命名为 part4，重命名后解压通过。类似大小写、补零差异占比不低，直接重下往往更浪费流量。</p>
+      </section>
+
+      <!-- 体验指南 -->
+      <section class="block" id="guide" aria-labelledby="guideTitle">
+        <div class="block-head">
+          <h2 id="guideTitle">体验指南：从找到下载到校验通过的六步</h2>
+          <span class="hint">按顺序执行</span>
+        </div>
+        <ol class="steps">
+          <li><div><b>先看清单，不看按钮</b><p>打开页面先找文件列表，确认卷数与总大小。没有清单的页面，直接记为“未知”，不进入下载环节。</p></div></li>
+          <li><div><b>记下 SHA-256 再动手</b><p>把清单里的哈希复制到本地文本。换镜像或断点续传前先保留原始哈希，避免不同版本混在一起比对失败。</p></div></li>
+          <li><div><b>浏览器直下优先</b><p>能用浏览器直接下载的链接，不要换第三方下载器。必须用客户端时，只从发布者给出的官方域名获取。</p></div></li>
+          <li><div><b>下载后先核对大小</b><p>逐卷比对字节数，差距超过 50MB 视为缺卷。差距在几 MB 内多为源站限速截断，可断点续传。</p></div></li>
+          <li><div><b>解压前扫一遍压缩包</b><p>检查包内是否只有媒体文件与清单 txt。出现 exe、bat、cmd 后缀，先解压到隔离目录再处理。</p></div></li>
+          <li><div><b>播放异常先看编码</b><p>用播放器信息面板确认封装与编码字段。HEVC 在旧版播放器上只有声音是常见现象，换解码器比重新下载更快。</p></div></li>
+        </ol>
+      </section>
+
+      <!-- FAQ -->
+      <section class="block faq" id="faq" aria-labelledby="faqTitle">
+        <div class="block-head">
+          <h2 id="faqTitle">常见问题：解压码、卡 99%、安装器</h2>
+          <span class="hint">点击展开</span>
+        </div>
+        <details>
+          <summary>极品反差免费下载的压缩包解压密码从哪来？</summary>
+          <div class="ans">多数发布贴会把解压码写在正文末尾或贴图右上角，常见格式是站点缩写加四位数字。找不到时对照发布者主页的固定置顶帖，而不是去第三方密码库乱试，误装捆绑程序的风险更高。11 月 3 日之后新增的 6 个样本，有 5 个沿用正文末尾直书。</div>
+        </details>
+        <details>
+          <summary>反差合集下载到 99% 卡住是什么原因？</summary>
+          <div class="ans">先用校验工具比对文件大小，差距在几 MB 之内多半是源站限速或断点续传失败；差距超过 50MB 通常是分卷缺失。换镜像前先记录原始哈希，避免不同版本混在一起。镜像 B 线路在 11 月 7 日修复后，同类反馈从 8 条降到 1 条。</div>
+        </details>
+        <details>
+          <summary>下载页提示需要安装专用下载器怎么办？</summary>
+          <div class="ans">专用下载器是捆绑安装的高发入口。浏览器直接下载可用时优先用浏览器；必须装客户端时只从发布者给出的官方域名获取，安装过程逐项取消勾选额外组件。10 月 20 日到 11 月 6 日的 47 个样本里，6 个 A 组页面出现了安装器跳转。</div>
+        </details>
+        <details>
+          <summary>如何判断一个反差资源站是否可信？</summary>
+          <div class="ans">看三处：更新时间是否按天推进且能对上条目编号，文件列表是否给出大小和哈希，评论区是否允许负面反馈留存。三项缺两项以上，先当未知处理。允许负面评论留存的站点，本批样本里只占三成。</div>
+        </details>
+        <details>
+          <summary>下载后的视频打不开或只有声音怎么办？</summary>
+          <div class="ans">先确认封装格式，MKV 和部分 HEVC 编码需要较新的播放器。用播放器信息面板看编码字段，再决定换解码器还是重新下载，别直接判定文件损坏。10 月 30 日记录的 5 种格式里，HEVC + MKV 组合占用排查工单最多。</div>
+        </details>
+      </section>
+
+      <!-- 用户评论 -->
+      <section class="block" id="comments" aria-labelledby="commentsTitle">
+        <div class="block-head">
+          <h2 id="commentsTitle">用户评论：来自下载现场的反馈</h2>
+          <span class="hint">38 条中摘 6 条</span>
+        </div>
+        <div class="comment-list">
+          <div class="comment">
+            <div class="who"><b>晚风 2046</b><time datetime="2026-11-07">11 月 7 日</time><span class="stamp">指向条目</span></div>
+            <p>秋季包 part03 我下了三次都断在 87%，换镜像 B 一次过。源站限速的问题，跟压缩包本身没关系。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><b>旧硬盘</b><time datetime="2026-11-06">11 月 6 日</time><span class="stamp">指向条目</span></div>
+            <p>解压码对照表里那张水印图确实被截断了一位，我放大到 400% 才看清是 7 不是 1。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><b>路过的阿吉</b><time datetime="2026-11-05">11 月 5 日</time></div>
+            <p>说标题党页面完整度差，我碰到的两个反而全的，这种统计看看就好，别当铁律。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><b>键盘手老周</b><time datetime="2026-11-04">11 月 4 日</time><span class="stamp">指向条目</span></div>
+            <p>网盘记录表准。11 月 4 日那三条确实下架了，我 3 号转存的还能用，4 号再去就 404。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><b>一杯冷萃</b><time datetime="2026-11-02">11 月 2 日</time></div>
+            <p>HEVC 那个排查单救了我，原来不是文件坏了，是播放器版本太老。装完新版直接能放，白下了第二遍。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><b>三号仓管</b><time datetime="2026-10-29">10 月 29 日</time><span class="stamp">指向条目</span></div>
+            <p>磁力链健康度表里做种 20 多那条我下了，速度只有 300KB/s。表里写“做种数虚高”是对的，但没提前看出来还是踩了。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 相关资讯 -->
+      <section class="block" id="news" aria-labelledby="newsTitle">
+        <div class="block-head">
+          <h2 id="newsTitle">相关资讯：规则与线路的变化</h2>
+          <span class="hint">10 月 17 日—11 月 8 日</span>
+        </div>
+        <div class="news-grid">
+          <article class="news-item">
+            <h3>镜像 B 线路修复 99% 卡顿</h3>
+            <p>11 月 7 日线路调整后，6 卷秋季包在该线路的完成率从 61% 升到 94%。同期镜像 A 未改动。</p>
+            <span class="src">来源：发布者置顶帖 · 11 月 7 日</span>
+          </article>
+          <article class="news-item">
+            <h3>索引帖可追溯性评级改为五项</h3>
+            <p>10 月 17 日起，原三级评级拆成五项：清单、哈希、更新日期、解压码位置、负面评论留存。</p>
+            <span class="src">来源：站点更新日志 · 10 月 17 日</span>
+          </article>
+          <article class="news-item">
+            <h3>网盘转存有效期缩短至 7 天</h3>
+            <p>10 月 25 日之后新发布的转存链接，多数标注 7 天有效期，此前常见 30 天。记录表已按新规则重排。</p>
+            <span class="src">来源：转存记录表 · 10 月 25 日</span>
+          </article>
+          <article class="news-item">
+            <h3>公告群满员导致解压码获取失败</h3>
+            <p>11 月 3 日与 11 月 6 日各出现一次公告群满员，跳转获取解压码的发布者受影响，正文直书法未受影响。</p>
+            <span class="src">来源：用户反馈归档 · 11 月 6 日</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- 相关推荐 -->
+      <section class="block" id="related" aria-labelledby="relatedTitle">
+        <div class="block-head">
+          <h2 id="relatedTitle">相关推荐：常被一起查看的条目</h2>
+          <span class="hint">标签索引</span>
+        </div>
+        <div class="tag-index">
+          <a href="/#analysis">反差合集哈希清单</a>
+          <a href="/#guide">RAR 分卷缺号修复</a>
+          <a href="/#faq">解压码水印识别</a>
+          <a href="/#analysis">HEVC 播放器版本对照</a>
+          <a href="/#picks">磁力链做种人数查询</a>
+          <a href="/#latest">网盘转存有效期记录</a>
+          <a href="/#guide">浏览器直链下载</a>
+          <a href="/#comments">安装器捆绑识别</a>
+          <a href="/#ranking">完整度月度榜单</a>
+          <a href="/#timeline">版本变更时间线</a>
+        </div>
+      </section>
+
+      <!-- 榜单 -->
+      <section class="block" id="ranking" aria-labelledby="rankingTitle">
+        <div class="block-head">
+          <h2 id="rankingTitle">完整度榜单：10 月核验排名前五</h2>
+          <span class="hint">按文件数吻合率</span>
+        </div>
+        <ol class="rank-list">
+          <li><span class="num">1</span><span class="name">单卷分片 2026-11-03 批次</span><span class="val">吻合 8/8</span></li>
+          <li><span class="num">2</span><span class="name">反差合集秋季包 6 卷全</span><span class="val">吻合 6/6</span></li>
+          <li><span class="num">3</span><span class="name">10 月 28 日磁力链条目 04</span><span class="val">实测 60% 标称速</span></li>
+          <li><span class="num">4</span><span class="name">10 月 21 日 RAR 五卷包</span><span class="val">吻合 5/5</span></li>
+          <li><span class="num">5</span><span class="name">10 月 19 日 MKV 单卷</span><span class="val">编码可识别</span></li>
+        </ol>
+      </section>
+
+      <!-- 时间线 -->
+      <section class="block" id="timeline" aria-labelledby="timelineTitle">
+        <div class="block-head">
+          <h2 id="timelineTitle">版本变更时间线：规则调整记录</h2>
+          <span class="hint">近 30 天</span>
+        </div>
+        <ul class="timeline">
+          <li><time datetime="2026-11-07">11 月 7 日</time><b>秋季包补种</b><p>新增 6 卷清单与 SHA-256，镜像 B 线路同步恢复。</p></li>
+          <li><time datetime="2026-11-03">11 月 3 日</time><b>解压码库扩充</b><p>新增 6 个变体样本，其中 5 个沿用正文直书格式。</p></li>
+          <li><time datetime="2026-10-25">10 月 25 日</time><b>转存有效期缩短</b><p>新发布网盘链接改为 7 天标注，旧链接按原有效期保留。</p></li>
+          <li><time datetime="2026-10-17">10 月 17 日</time><b>评级方法更新</b><p>三级评级拆为五项可核对指标，历史条目重新打分。</p></li>
+        </ul>
+      </section>
+
+      <!-- 引语 -->
+      <section class="block" id="voice" aria-labelledby="voiceTitle">
+        <div class="block-head">
+          <h2 id="voiceTitle">发布者证言：一位整理者的做法</h2>
+          <span class="hint">11 月 2 日访谈摘录</span>
+        </div>
+        <div class="quote-card">
+          <blockquote>“每卷先自己下一遍，哈希对上才写进清单。少一卷就让整包重发，不补单卷——补出来的单卷编号最容易乱。”</blockquote>
+          <cite>—— 一位整理了 40 余个合集的发布者，11 月 2 日访谈</cite>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 侧栏 -->
+    <aside class="side-col" aria-label="侧栏导航与速查">
+      <nav class="side-card" aria-labelledby="sideNavTitle">
+        <h3 id="sideNavTitle">栏目速览</h3>
+        <ul class="side-nav" id="sideNav">
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#picks">精选内容推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">分类入口</a></li>
+          <li><a href="/#analysis">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+          <li><a href="/#ranking">完整度榜单</a></li>
+          <li><a href="/#timeline">版本变更时间线</a></li>
+        </ul>
+      </nav>
+
+      <div class="side-card">
+        <h3>核验五项速查</h3>
+        <div class="meter-row"><span>文件清单</span><span>必查</span></div>
+        <div class="mini-meter"><i style="width:100%"></i></div>
+        <div class="meter-row"><span>SHA-256 哈希</span><span>必查</span></div>
+        <div class="mini-meter"><i style="width:100%"></i></div>
+        <div class="meter-row"><span>解压码位置</span><span>正文优先</span></div>
+        <div class="mini-meter"><i style="width:78%"></i></div>
+        <div class="meter-row"><span>更新日期</span><span>对条目号</span></div>
+        <div class="mini-meter"><i style="width:66%"></i></div>
+        <div class="meter-row"><span>负面评论留存</span><span>参考</span></div>
+        <div class="mini-meter"><i style="width:34%"></i></div>
+      </div>
+
+      <div class="side-card">
+        <h3>热门标签</h3>
+        <div class="chip-stack">
+          <a href="/#analysis">SHA-256 清单</a>
+          <a href="/#faq">解压码</a>
+          <a href="/#analysis">HEVC 编码</a>
+          <a href="/#latest">网盘 7 天有效</a>
+          <a href="/#guide">断点续传</a>
+          <a href="/#comments">安装器拦截</a>
+          <a href="/#picks">磁力链做种</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <b>极品反差免费下载</b>
+      <p>把资源页的清单、哈希与解压码拆开核对，让每一次下载都少走一遍回头路。</p>
+    </div>
+    <div class="footer-col">
+      <h4>核心栏目</h4>
+      <ul>
+        <li><a href="/#overview">领域概览</a></li>
+        <li><a href="/#analysis">深度解析</a></li>
+        <li><a href="/#guide">体验指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>资源速查</h4>
+      <ul>
+        <li><a href="/#picks">精选合集</a></li>
+        <li><a href="/#channels">分类入口</a></li>
+        <li><a href="/#ranking">完整度榜单</a></li>
+        <li><a href="/#timeline">版本变更时间线</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>互动与说明</h4>
+      <ul>
+        <li><a href="/#comments">用户评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#related">相关推荐</a></li>
+        <li><a href="/#voice">发布者证言</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>页面内容除标注来源外，均为基于 2026 年 10 月 17 日至 11 月 8 日公开样本整理的示例条目，用于说明核验方法，不构成下载担保。</span>
+    <span>条目与评论更新时间：2026-11-08</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到页面顶部">↑</button>
+
+<script>
+(function(){
+  var stickyShell = document.querySelector('.sticky-shell');
+  function syncStickyHeight(){
+    if(stickyShell){document.documentElement.style.setProperty('--sticky-h', stickyShell.offsetHeight + 'px');}
+  }
+  syncStickyHeight();
+  window.addEventListener('resize', syncStickyHeight);
+
+  var menuBtn = document.getElementById('menuBtn');
+  var mainNav = document.getElementById('mainNav');
+  if(menuBtn && mainNav){
+    menuBtn.addEventListener('click', function(){
+      var open = mainNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.textContent = open ? '✕ 收起' : '☰ 目录';
+      syncStickyHeight();
+    });
+    mainNav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 720){
+        mainNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+        menuBtn.textContent = '☰ 目录';
+        syncStickyHeight();
+      }
+    });
+  }
+
+  var input = document.getElementById('siteSearch');
+  var feedback = document.getElementById('searchFeedback');
+  var searchData = [];
+  document.querySelectorAll('.main-col h2, .main-col h3, .main-col a, .main-col .feed-list a, .side-card a').forEach(function(el){
+    var text = (el.textContent || '').trim();
+    if(text.length > 1){
+      var target = el.closest('section') || el;
+      searchData.push({text:text, id: target.id || '', link: el.getAttribute('href') || ''});
+    }
+  });
+  if(input && feedback){
+    input.addEventListener('input', function(){
+      var q = input.value.trim().toLowerCase();
+      if(!q){feedback.classList.remove('on'); feedback.textContent=''; return;}
+      var hits = searchData.filter(function(item){return item.text.toLowerCase().indexOf(q) > -1;});
+      var seen = {};
+      hits = hits.filter(function(item){
+        if(seen[item.text]){return false;}
+        seen[item.text] = true; return true;
+      }).slice(0,5);
+      feedback.classList.add('on');
+      if(hits.length === 0){
+        feedback.textContent = '没有找到与“' + input.value.trim() + '”匹配的条目，换个关键词试试，例如“解压码”“分卷”“HEVC”。';
+      } else {
+        feedback.innerHTML = '匹配条目：' + hits.map(function(item){
+          var href = item.link && item.link.indexOf('/#') === 0 ? item.link : (item.id ? '/#' + item.id : '/#top');
+          return '<a href="' + href + '">' + item.text + '</a>';
+        }).join(' · ');
+      }
+    });
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){input.value=''; feedback.classList.remove('on'); feedback.textContent='';}
+    });
+  }
+
+  var toTop = document.getElementById('toTop');
+  if(toTop){
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 500){toTop.classList.add('show');}
+      else{toTop.classList.remove('show');}
+    }, {passive:true});
+    toTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    });
+  }
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var sections = navLinks.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if('IntersectionObserver' in window && sections.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          navLinks.forEach(function(a){a.classList.remove('active');});
+          var active = navLinks.filter(function(a){return a.getAttribute('href') === '/#' + entry.target.id;})[0];
+          if(active){active.classList.add('active');}
+        }
+      });
+    }, {rootMargin: '-30% 0px -55% 0px'});
+    sections.forEach(function(s){io.observe(s);});
+  }
+})();
+</script>
+</body>
+                                                                                      </html>
