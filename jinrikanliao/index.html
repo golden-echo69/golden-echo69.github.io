@@ -1,0 +1,1270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日看料-每日更新看点与深度解读</title>
+<meta name="description" content="今日看料每日更新，聚焦当日可核对的资讯条目、数据变化与判断依据。今日看料汇集科技、消费、文娱与城市生活四类看点，按日期标注来源，提供分类入口、深度解析、体验指南与读者评论。">
+<meta name="keywords" content="今日看料">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3a52'/%3E%3Ccircle cx='24' cy='24' r='9' fill='%23f2b544'/%3E%3Crect x='34' y='16' width='16' height='18' rx='3' fill='%23e8f1f5'/%3E%3Crect x='16' y='38' width='32' height='10' rx='4' fill='%2399c4d6'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1c2a33;
+  --ink-soft:#3f5563;
+  --paper:#f5f2ea;
+  --card:#ffffff;
+  --main:#1c3a52;
+  --main-deep:#12283a;
+  --accent:#c8622c;
+  --accent-soft:#f6e3d5;
+  --gold:#f2b544;
+  --line:#d9d2c3;
+  --line-strong:#b9b0a0;
+  --muted:#6b7d89;
+  --radius:10px;
+  --radius-sm:6px;
+  --shadow:0 2px 10px rgba(28,42,51,.08);
+  --shadow-lift:0 6px 18px rgba(28,42,51,.13);
+  --gap:22px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --ann-h:40px;
+  --head-h:62px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:var(--main);text-decoration:none}
+a:hover{color:var(--accent)}
+h1,h2,h3,h4{line-height:1.35;color:var(--main-deep)}
+hr{border:0;border-top:1px solid var(--line)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:3px}
+
+/* ============ 吸顶公告条 ============ */
+.ann-bar{
+  position:sticky;top:0;z-index:60;
+  height:var(--ann-h);
+  display:flex;align-items:center;
+  background:var(--main-deep);
+  color:#e8f1f5;
+  font-size:.83rem;
+}
+.ann-inner{
+  width:100%;max-width:1180px;margin:0 auto;
+  padding:0 18px;
+  display:flex;align-items:center;gap:12px;
+  overflow:hidden;white-space:nowrap;
+}
+.ann-tag{
+  flex:0 0 auto;
+  background:var(--gold);color:var(--main-deep);
+  font-weight:700;font-size:.74rem;letter-spacing:.06em;
+  padding:2px 8px;border-radius:20px;
+}
+.ann-text{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.ann-text b{color:var(--gold);font-weight:600}
+.ann-link{flex:0 0 auto;color:#a9d3e5;border-bottom:1px dashed #5f89a0;font-size:.78rem}
+
+/* ============ 吸顶页头 ============ */
+.site-head{
+  position:sticky;top:var(--ann-h);z-index:55;
+  background:rgba(245,242,234,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  height:var(--head-h);
+}
+.head-inner{
+  max-width:1180px;margin:0 auto;height:100%;
+  padding:0 18px;
+  display:flex;align-items:center;gap:18px;
+}
+.brand{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.brand-mark{width:34px;height:34px;flex:0 0 auto}
+.brand-name{font-size:1.14rem;font-weight:800;letter-spacing:.03em;color:var(--main-deep);line-height:1}
+.brand-sub{display:block;font-size:.62rem;font-weight:500;color:var(--muted);letter-spacing:.14em;margin-top:3px}
+.main-nav{flex:1 1 auto;min-width:0}
+.main-nav ul{display:flex;list-style:none;gap:4px;overflow-x:auto;scrollbar-width:none}
+.main-nav ul::-webkit-scrollbar{display:none}
+.main-nav a{
+  display:block;padding:6px 11px;border-radius:var(--radius-sm);
+  font-size:.86rem;color:var(--ink-soft);white-space:nowrap;
+}
+.main-nav a:hover{background:#e9e3d6;color:var(--main-deep)}
+.main-nav a.active{background:var(--main);color:#fff}
+.head-tools{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.search-box{display:flex;align-items:center;border:1px solid var(--line-strong);border-radius:20px;background:#fff;padding:0 4px 0 12px;height:34px}
+.search-box input{
+  border:0;outline:0;background:transparent;font:inherit;font-size:.84rem;
+  width:118px;color:var(--ink);
+}
+.search-box input::placeholder{color:#9aa8b1}
+.search-btn{
+  border:0;background:var(--main);color:#fff;border-radius:20px;
+  height:26px;padding:0 12px;font:inherit;font-size:.78rem;cursor:pointer;
+}
+.search-btn:hover{background:var(--accent)}
+.menu-btn{
+  display:none;align-items:center;justify-content:center;gap:5px;
+  border:1px solid var(--line-strong);background:#fff;color:var(--main-deep);
+  border-radius:var(--radius-sm);height:34px;padding:0 11px;
+  font:inherit;font-size:.82rem;cursor:pointer;
+}
+.menu-btn .bars{display:inline-block;width:14px;height:10px;position:relative}
+.menu-btn .bars::before,.menu-btn .bars::after,.menu-btn .bars i{
+  content:"";position:absolute;left:0;width:14px;height:2px;background:var(--main-deep);border-radius:1px;
+}
+.menu-btn .bars::before{top:0}
+.menu-btn .bars i{top:4px}
+.menu-btn .bars::after{top:8px}
+.search-note{
+  max-width:1180px;margin:0 auto;padding:0 18px;
+}
+.search-feedback{
+  display:none;background:var(--accent-soft);border:1px solid var(--accent);
+  color:#7c3a12;font-size:.82rem;padding:8px 12px;border-radius:var(--radius-sm);
+  margin:8px 0 0;
+}
+.search-feedback.show{display:block}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(242,181,68,.22),transparent 42%),
+    radial-gradient(circle at 12% 88%,rgba(153,196,214,.28),transparent 46%),
+    linear-gradient(160deg,#eef3f5 0%,#f5f2ea 60%,#efe8da 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  max-width:1180px;margin:0 auto;padding:52px 18px 44px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:38px;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--line);
+  border-radius:20px;padding:3px 13px;
+  font-size:.76rem;color:var(--main);letter-spacing:.08em;font-weight:600;
+}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(200,98,44,.18)}
+.hero h1{
+  font-size:clamp(2rem,4.2vw,3.1rem);
+  letter-spacing:.02em;margin:16px 0 6px;color:var(--main-deep);
+}
+.hero-tagline{font-size:.95rem;color:var(--accent);font-weight:600;letter-spacing:.06em;margin-bottom:14px}
+.hero-desc{font-size:.95rem;color:var(--ink-soft);max-width:52ch;margin-bottom:22px}
+.hero-desc strong{color:var(--main-deep)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 20px;border-radius:24px;font-size:.9rem;font-weight:600;
+  border:1px solid transparent;transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.btn-primary{background:var(--main);color:#fff;box-shadow:var(--shadow)}
+.btn-primary:hover{background:var(--main-deep);color:#fff;transform:translateY(-2px)}
+.btn-ghost{background:#fff;border-color:var(--line-strong);color:var(--main-deep)}
+.btn-ghost:hover{border-color:var(--main);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap;list-style:none}
+.hero-stats li{border-left:2px solid var(--gold);padding-left:11px}
+.hero-stats b{display:block;font-size:1.32rem;color:var(--main-deep);line-height:1.2}
+.hero-stats span{font-size:.76rem;color:var(--muted);letter-spacing:.05em}
+/* 首屏原创构图 */
+.hero-art{position:relative;min-height:300px}
+.hero-art svg{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 24px rgba(18,40,58,.16))}
+.hero-art .art-cap{
+  position:absolute;right:0;bottom:-6px;background:#fff;border:1px solid var(--line);
+  border-radius:8px;padding:5px 11px;font-size:.72rem;color:var(--muted);
+  box-shadow:var(--shadow);
+}
+
+/* ============ 主内容骨架 ============ */
+.layout{
+  max-width:1180px;margin:0 auto;padding:34px 18px 10px;
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;
+  gap:var(--gap);align-items:start;
+}
+.main-col{min-width:0}
+.side-col{min-width:0;display:flex;flex-direction:column;gap:var(--gap);position:sticky;top:calc(var(--ann-h) + var(--head-h) + 16px)}
+section[id],div[id]{scroll-margin-top:calc(var(--ann-h) + var(--head-h) + 14px)}
+
+/* 通用板块 */
+.panel{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;margin-bottom:var(--gap);box-shadow:var(--shadow);
+}
+.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.panel-head h2{font-size:1.24rem;letter-spacing:.02em;display:flex;align-items:center;gap:9px}
+.panel-head h2::before{content:"";width:5px;height:20px;border-radius:3px;background:var(--accent);flex:0 0 auto}
+.panel-head .meta{font-size:.76rem;color:var(--muted);letter-spacing:.04em}
+.panel-lead{font-size:.9rem;color:var(--ink-soft);margin-bottom:16px}
+.kicker{font-size:.74rem;letter-spacing:.16em;color:var(--accent);font-weight:700;text-transform:uppercase;display:block;margin-bottom:5px}
+
+/* 领域概览：四类卡 */
+.overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ov-card{
+  border:1px solid var(--line);border-radius:var(--radius-sm);padding:15px 16px;background:#fbfaf6;
+  border-left:3px solid var(--main);
+}
+.ov-card h3{font-size:.98rem;margin-bottom:6px}
+.ov-card p{font-size:.85rem;color:var(--ink-soft)}
+.ov-card .num{font-size:.72rem;color:var(--accent);font-weight:700;letter-spacing:.05em}
+
+/* 精选推荐：非对称组合 */
+.feature-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:14px}
+.feat-main{
+  position:relative;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--line);
+  background:#fff;display:flex;flex-direction:column;
+}
+.feat-main img{width:100%;height:200px;object-fit:cover;aspect-ratio:16/9}
+.feat-body{padding:16px 17px}
+.feat-body .tag{font-size:.72rem;color:var(--accent);font-weight:700;letter-spacing:.08em}
+.feat-body h3{font-size:1.12rem;margin:5px 0 7px}
+.feat-body p{font-size:.86rem;color:var(--ink-soft)}
+.feat-side{display:flex;flex-direction:column;gap:12px}
+.mini-card{
+  display:grid;grid-template-columns:78px minmax(0,1fr);gap:11px;
+  border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;background:#fff;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.mini-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.mini-card img{width:78px;height:100%;min-height:78px;object-fit:cover}
+.mini-card .mc-body{padding:9px 11px 9px 0}
+.mini-card h4{font-size:.88rem;margin-bottom:4px;line-height:1.45}
+.mini-card span{font-size:.72rem;color:var(--muted)}
+
+/* 最新更新：时间线 */
+.timeline{list-style:none;position:relative;padding-left:20px}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--line))}
+.timeline li{position:relative;padding:0 0 16px 4px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{
+  content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;
+  background:#fff;border:2px solid var(--accent);
+}
+.timeline time{font-size:.74rem;color:var(--accent);font-weight:700;letter-spacing:.06em;display:block}
+.timeline h4{font-size:.94rem;margin:2px 0 3px}
+.timeline p{font-size:.84rem;color:var(--ink-soft)}
+.timeline .src{font-size:.73rem;color:var(--muted)}
+
+/* 分类索引：标签索引 */
+.chip-index{display:flex;flex-wrap:wrap;gap:9px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--line-strong);background:#fbfaf6;color:var(--ink-soft);
+  border-radius:20px;padding:5px 13px;font-size:.83rem;
+  transition:background .16s ease,border-color .16s ease,transform .16s ease;
+}
+.chip:hover{background:var(--main);border-color:var(--main);color:#fff;transform:translateY(-2px)}
+.chip em{font-style:normal;font-size:.71rem;color:var(--muted)}
+.chip:hover em{color:#a9d3e5}
+
+/* 深度解析：主体阅读区 */
+.deep{border:1px solid var(--line);border-left:5px solid var(--main);border-radius:var(--radius);background:linear-gradient(180deg,#fffdf8,#ffffff)}
+.deep .panel-head h2{font-size:1.32rem}
+.deep-body{font-size:.93rem;color:var(--ink-soft)}
+.deep-body h3{font-size:1.03rem;margin:20px 0 8px;padding-left:10px;border-left:3px solid var(--gold)}
+.deep-body h3:first-child{margin-top:2px}
+.deep-body p{margin-bottom:11px}
+.deep-body strong{color:var(--main-deep)}
+.deep-body ul{margin:6px 0 12px 20px;font-size:.88rem}
+.deep-body li{margin-bottom:4px}
+.judge-table{
+  width:100%;border-collapse:collapse;font-size:.82rem;margin:8px 0 14px;
+  background:#fff;border:1px solid var(--line);
+}
+.judge-table caption{caption-side:top;text-align:left;font-size:.76rem;color:var(--muted);padding-bottom:6px}
+.judge-table th,.judge-table td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+.judge-table th{background:#eef3f5;color:var(--main-deep);font-weight:700;white-space:nowrap}
+.judge-table td.ok{color:#276749}
+.judge-table td.no{color:#9b2c2c}
+.pullquote{
+  border-left:4px solid var(--accent);background:var(--accent-soft);
+  padding:12px 16px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-size:.9rem;color:#6f3210;margin:14px 0;
+}
+.pullquote cite{display:block;font-style:normal;font-size:.74rem;color:#9a5a33;margin-top:5px}
+
+/* 体验指南：编号步骤 */
+.steps{list-style:none;counter-reset:step;display:grid;gap:12px}
+.steps li{
+  counter-increment:step;display:grid;grid-template-columns:34px minmax(0,1fr);
+  gap:12px;align-items:start;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:13px 15px;background:#fbfaf6;
+}
+.steps li::before{
+  content:counter(step);width:30px;height:30px;border-radius:50%;
+  background:var(--main);color:#fff;font-weight:700;font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.steps h4{font-size:.92rem;margin-bottom:3px}
+.steps p{font-size:.84rem;color:var(--ink-soft)}
+.steps .note{font-size:.76rem;color:var(--accent);margin-top:3px;display:block}
+
+/* FAQ */
+.faq-list{display:grid;gap:9px}
+details{
+  border:1px solid var(--line);border-radius:var(--radius-sm);background:#fbfaf6;
+  padding:0 15px;transition:border-color .16s ease;
+}
+details[open]{border-color:var(--main);background:#fff}
+summary{
+  cursor:pointer;list-style:none;padding:12px 0;font-size:.92rem;font-weight:600;
+  color:var(--main-deep);display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";font-size:1.15rem;color:var(--accent);font-weight:400;line-height:1;flex:0 0 auto;
+  transition:transform .18s ease;
+}
+details[open] summary::after{content:"−"}
+details .ans{padding:0 0 13px;font-size:.86rem;color:var(--ink-soft)}
+
+/* 评论 */
+.comment-list{display:grid;gap:12px;list-style:none}
+.comment{
+  display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px;
+  padding:13px 0;border-bottom:1px dashed var(--line);
+}
+.comment:last-child{border-bottom:0;padding-bottom:0}
+.avatar{
+  width:38px;height:38px;border-radius:50%;background:var(--main);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;
+}
+.avatar.alt{background:var(--accent)}
+.avatar.alt2{background:#4a7a8c}
+.c-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:2px}
+.c-head b{font-size:.86rem;color:var(--main-deep)}
+.c-head time{font-size:.72rem;color:var(--muted)}
+.c-body{font-size:.86rem;color:var(--ink-soft)}
+.c-body .mention{color:var(--accent);font-weight:600}
+.c-like{font-size:.72rem;color:var(--muted);margin-top:4px;display:inline-block}
+
+/* 资讯列表 */
+.news-list{list-style:none;display:grid;gap:10px}
+.news-list li{
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:11px;align-items:baseline;
+  padding:10px 0;border-bottom:1px solid var(--line);
+}
+.news-list li:last-child{border-bottom:0}
+.news-list time{font-size:.73rem;color:var(--muted);white-space:nowrap}
+.news-list a{font-size:.89rem;color:var(--main-deep);font-weight:500}
+.news-list .chan{font-size:.71rem;background:#eef3f5;color:var(--main);padding:1px 8px;border-radius:12px;white-space:nowrap}
+
+/* 相关推荐标签 */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.tag-cloud a{
+  font-size:.8rem;background:#eef3f5;color:var(--main);
+  padding:5px 12px;border-radius:6px;border:1px solid transparent;
+}
+.tag-cloud a:hover{background:var(--accent);color:#fff}
+
+/* 榜单 */
+.rank-list{list-style:none;counter-reset:rank;display:grid;gap:9px}
+.rank-list li{
+  counter-increment:rank;display:grid;grid-template-columns:28px minmax(0,1fr) auto;
+  align-items:center;gap:10px;padding:9px 12px;border-radius:var(--radius-sm);
+  background:#fbfaf6;border:1px solid var(--line);
+}
+.rank-list li::before{
+  content:counter(rank);font-weight:800;font-size:.9rem;color:var(--muted);
+  width:24px;height:24px;border-radius:6px;background:#eef3f5;
+  display:flex;align-items:center;justify-content:center;
+}
+.rank-list li:nth-child(-n+3)::before{background:var(--gold);color:var(--main-deep)}
+.rank-list .rk-name{font-size:.88rem;font-weight:600;color:var(--main-deep)}
+.rank-list .rk-meta{font-size:.74rem;color:var(--muted)}
+.rank-list .rk-bar{width:64px;height:6px;border-radius:4px;background:#e5ddcd;overflow:hidden}
+.rank-list .rk-bar i{display:block;height:100%;background:var(--main);border-radius:4px}
+
+/* 引语卡 */
+.quote-card{
+  border:1px solid var(--line);border-radius:var(--radius-sm);background:#fbfaf6;
+  padding:18px 20px;display:grid;gap:10px;
+}
+.quote-card blockquote{font-size:.94rem;color:var(--main-deep);line-height:1.7}
+.quote-card .who{font-size:.76rem;color:var(--muted)}
+.quote-card .who b{color:var(--accent)}
+
+/* 侧栏 */
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;box-shadow:var(--shadow);
+}
+.side-card h2{font-size:.98rem;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.side-card h2::before{content:"";width:4px;height:15px;background:var(--accent);border-radius:2px}
+.side-nav ul{list-style:none;display:grid;gap:2px}
+.side-nav a{
+  display:block;font-size:.84rem;padding:6px 10px;border-radius:var(--radius-sm);
+  color:var(--ink-soft);border-left:2px solid transparent;
+}
+.side-nav a:hover{background:#f0ece2;color:var(--main-deep)}
+.side-nav a.current{background:#eef3f5;border-left-color:var(--accent);color:var(--main-deep);font-weight:600}
+.watch-list{list-style:none;display:grid;gap:9px;font-size:.83rem}
+.watch-list li{padding-bottom:8px;border-bottom:1px dashed var(--line)}
+.watch-list li:last-child{border-bottom:0;padding-bottom:0}
+.watch-list b{display:block;color:var(--main-deep);font-size:.85rem}
+.watch-list span{color:var(--muted);font-size:.74rem}
+.data-note{font-size:.78rem;color:var(--muted);line-height:1.65}
+.data-note b{color:var(--accent)}
+
+/* 页脚 */
+.site-foot{background:var(--main-deep);color:#c6d6de;margin-top:26px;padding:40px 0 22px}
+.foot-inner{max-width:1180px;margin:0 auto;padding:0 18px}
+.foot-top{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,.9fr));gap:30px}
+.foot-brand .brand-name{color:#fff;font-size:1.1rem}
+.foot-brand .brand-sub{color:#8fa9b6}
+.foot-brand p{font-size:.82rem;margin-top:12px;color:#a9c1cc;max-width:32ch}
+.foot-col h3{font-size:.82rem;color:var(--gold);letter-spacing:.1em;margin-bottom:11px;font-weight:700}
+.foot-col ul{list-style:none;display:grid;gap:7px}
+.foot-col a{font-size:.82rem;color:#c6d6de}
+.foot-col a:hover{color:#fff;text-decoration:underline}
+.foot-mid{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:.76rem;color:#8fa9b6;line-height:1.8}
+.foot-mid b{color:#c6d6de}
+.foot-bottom{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;font-size:.75rem;color:#7e98a5}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:18px;bottom:22px;z-index:70;
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--line-strong);background:#fff;color:var(--main-deep);
+  font-size:1.05rem;cursor:pointer;box-shadow:var(--shadow-lift);
+  display:none;align-items:center;justify-content:center;
+}
+.to-top.show{display:flex}
+.to-top:hover{background:var(--main);color:#fff;border-color:var(--main)}
+
+/* 平板：合并双栏 */
+@media (max-width:960px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side-col{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+  .hero-inner{grid-template-columns:minmax(0,1fr);gap:26px}
+  .hero-art{max-width:440px}
+  .foot-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+}
+/* 手机：单栏 */
+@media (max-width:720px){
+  .main-nav{
+    display:none;position:absolute;left:0;right:0;top:var(--head-h);
+    background:var(--paper);border-bottom:1px solid var(--line);padding:10px 14px;
+    box-shadow:var(--shadow-lift);
+  }
+  .main-nav.open{display:block}
+  .main-nav ul{flex-direction:column;gap:2px;overflow:visible}
+  .main-nav a{padding:9px 12px;font-size:.92rem}
+  .menu-btn{display:inline-flex}
+  .head-inner{gap:10px}
+  .search-box input{width:88px}
+  .overview-grid,.feature-grid,.side-col{grid-template-columns:minmax(0,1fr)}
+  .panel{padding:18px}
+  .hero-inner{padding:34px 18px 30px}
+  .hero-stats{gap:18px}
+  .hero-stats b{font-size:1.15rem}
+  .ann-text{font-size:.78rem}
+  .ann-link{display:none}
+  .foot-top{grid-template-columns:minmax(0,1fr)}
+  .news-list li{grid-template-columns:minmax(0,1fr) auto}
+  .news-list time{grid-column:1/-1;order:3}
+  .to-top{right:12px;bottom:14px;width:38px;height:38px}
+}
+@media (max-width:380px){
+  .brand-sub{display:none}
+  .search-box{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .mini-card:hover,.chip:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="ann-bar" role="region" aria-label="更新公告">
+  <div class="ann-inner">
+    <span class="ann-tag">今日看料</span>
+    <span class="ann-text">11月8日更新 <b>37 条</b>｜新增「社区团购比价」与「短剧分账」两组核对样本，昨日 4 条误读已订正</span>
+    <a class="ann-link" href="/#latest">查看更新明细 →</a>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-head">
+  <div class="head-inner">
+    <a class="brand" href="/#top" aria-label="今日看料首页">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1c3a52"/>
+        <circle cx="24" cy="24" r="9" fill="#f2b544"/>
+        <rect x="34" y="16" width="16" height="18" rx="3" fill="#e8f1f5"/>
+        <rect x="16" y="38" width="32" height="10" rx="4" fill="#99c4d6"/>
+      </svg>
+      <span>
+        <span class="brand-name">今日看料</span>
+        <span class="brand-sub">每日更新 · 可核对</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="主题导航">
+      <ul>
+        <li><a href="/#overview">领域概览</a></li>
+        <li><a href="/#pick">精选推荐</a></li>
+        <li><a href="/#latest">最新更新</a></li>
+        <li><a href="/#channel">分类入口</a></li>
+        <li><a href="/#deep">深度解析</a></li>
+        <li><a href="/#guide">体验指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#rank">周榜</a></li>
+      </ul>
+    </nav>
+    <div class="head-tools">
+      <form class="search-box" id="searchForm" role="search">
+        <input type="search" id="searchInput" placeholder="搜条目、频道" aria-label="站内搜索">
+        <button class="search-btn" type="submit">查找</button>
+      </form>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">
+        <span class="bars" aria-hidden="true"><i></i></span>菜单
+      </button>
+    </div>
+  </div>
+  <div class="search-note">
+    <p class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></p>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>2026年11月8日 · 周日看料</span>
+        <h1 id="heroTitle">今日看料</h1>
+        <p class="hero-tagline">每天一组能核对的看点，不做转述二传手</p>
+        <p class="hero-desc">从早间财报、平台规则变更到晚高峰消费投诉，按<strong>日期、账号、版本号</strong>归档；每条看点附原文措辞与核对入口，判断与事实分层摆放。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="/#deep">读今日深度解析 →</a>
+          <a class="btn btn-ghost" href="/#latest">看最新更新</a>
+        </div>
+        <ul class="hero-stats">
+          <li><b>37</b><span>今日新增条目</span></li>
+          <li><b>9</b><span>覆盖频道</span></li>
+          <li><b>4</b><span>订正与回应</span></li>
+          <li><b>11.08</b><span>数据快照日期</span></li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 320" role="img" aria-label="抽象构成的看料堆叠图">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1c3a52"/><stop offset="1" stop-color="#2e5c76"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#f2b544"/><stop offset="1" stop-color="#e8973f"/>
+            </linearGradient>
+          </defs>
+          <rect x="26" y="42" width="252" height="196" rx="16" fill="url(#g1)"/>
+          <rect x="48" y="66" width="150" height="12" rx="6" fill="#99c4d6" opacity=".85"/>
+          <rect x="48" y="90" width="200" height="8" rx="4" fill="#7ea9bd" opacity=".6"/>
+          <rect x="48" y="106" width="172" height="8" rx="4" fill="#7ea9bd" opacity=".6"/>
+          <rect x="48" y="134" width="96" height="64" rx="10" fill="#e8f1f5" opacity=".95"/>
+          <rect x="156" y="134" width="92" height="28" rx="8" fill="#f2b544"/>
+          <rect x="156" y="170" width="92" height="28" rx="8" fill="#c8622c"/>
+          <circle cx="252" cy="68" r="13" fill="#f2b544"/>
+          <rect x="196" y="206" width="196" height="88" rx="14" fill="url(#g2)"/>
+          <rect x="216" y="226" width="120" height="10" rx="5" fill="#12283a" opacity=".55"/>
+          <rect x="216" y="246" width="156" height="8" rx="4" fill="#12283a" opacity=".35"/>
+          <rect x="216" y="264" width="86" height="8" rx="4" fill="#12283a" opacity=".35"/>
+          <rect x="330" y="222" width="42" height="54" rx="8" fill="#12283a" opacity=".8"/>
+        </svg>
+        <span class="art-cap">看图掌握今日 4 组重点更新</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+
+    <!-- 主内容列 -->
+    <div class="main-col">
+
+      <!-- 1 领域概览 -->
+      <section class="panel" id="overview" aria-labelledby="ovTitle">
+        <div class="panel-head">
+          <h2 id="ovTitle">领域概览：今天盯哪四条线</h2>
+          <span class="meta">快照 11-08 09:30</span>
+        </div>
+        <p class="panel-lead">看料按信息产生的时间与可核对程度分线，每条线给出当天最值得追的一个对象，不铺量。</p>
+        <div class="overview-grid">
+          <div class="ov-card">
+            <span class="num">线 01 · 科技产品</span>
+            <h3>折叠屏维修报价单</h3>
+            <p>11月7日起，三家授权维修点在华为 Mate X6 与荣耀 Magic V5 的换屏价目上出现 260 元价差，来源是门店公示牌实拍。</p>
+          </div>
+          <div class="ov-card">
+            <span class="num">线 02 · 消费比价</span>
+            <h3>社区团购自提点变更</h3>
+            <p>11月6日成都成华区 12 个自提点合并为 7 个，平台 App 内仍显示旧地址，退款入口在订单页第二层。</p>
+          </div>
+          <div class="ov-card">
+            <span class="num">线 03 · 文娱内容</span>
+            <h3>短剧分账新口径</h3>
+            <p>11月5日某短剧平台发布 10 月分账公示，把「有效播放」改为「完播 30 秒以上」，制作方后台数据同步调整。</p>
+          </div>
+          <div class="ov-card">
+            <span class="num">线 04 · 城市生活</span>
+            <h3>地铁末班车调整</h3>
+            <p>11月8日合肥轨道 3 号线周五、周六末班延后至 23:40，公告贴在站厅 B 口，与 App 内时刻表有 5 分钟出入。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选推荐 -->
+      <section class="panel" id="pick" aria-labelledby="pickTitle">
+        <div class="panel-head">
+          <h2 id="pickTitle">精选内容推荐</h2>
+          <span class="meta">编辑部挑出 4 条</span>
+        </div>
+        <div class="feature-grid">
+          <article class="feat-main">
+            <img src="https://picsum.photos/seed/jrkl-fold/720/405" width="720" height="405" loading="lazy" alt="折叠屏手机内屏拆解与维修价目牌" style="object-fit:cover">
+            <div class="feat-body">
+              <span class="tag">深度 · 折叠屏维修价</span>
+              <h3>换一块内屏 4680 元，价差藏在哪三张单据里</h3>
+              <p>三家门店的报价单、保外判定书、旧件回收单放在一起比对，能看出 260 元差价来自工时费还是屏幕批次。</p>
+            </div>
+          </article>
+          <div class="feat-side">
+            <a class="mini-card" href="/#channel">
+              <img src="https://picsum.photos/seed/jrkl-pickup/160/160" width="160" height="160" loading="lazy" alt="社区团购自提点货架与取货码牌" style="object-fit:cover">
+              <div class="mc-body">
+                <h4>自提点合并后，旧地址仍挂 6 天</h4>
+                <span>消费比价 · 11-06</span>
+              </div>
+            </a>
+            <a class="mini-card" href="/#deep">
+              <img src="https://picsum.photos/seed/jrkl-drama/160/160" width="160" height="160" loading="lazy" alt="短剧平台后台分账数据截图示意" style="object-fit:cover">
+              <div class="mc-body">
+                <h4>「有效播放」改口径的连锁反应</h4>
+                <span>文娱内容 · 11-05</span>
+              </div>
+            </a>
+            <a class="mini-card" href="/#guide">
+              <img src="https://picsum.photos/seed/jrkl-metro/160/160" width="160" height="160" loading="lazy" alt="地铁站厅末班车时刻公告牌" style="object-fit:cover">
+              <div class="mc-body">
+                <h4>末班车延后，换乘要重新算</h4>
+                <span>城市生活 · 11-08</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="panel" id="latest" aria-labelledby="latestTitle">
+        <div class="panel-head">
+          <h2 id="latestTitle">最新更新</h2>
+          <span class="meta">按发布时间倒序</span>
+        </div>
+        <ol class="timeline">
+          <li>
+            <time datetime="2026-11-08T11:20">今天 11:20</time>
+            <h4>合肥轨道 3 号线周五、周六末班延后</h4>
+            <p>站厅 B 口公告写明 23:40，App 内时刻表仍为 23:35，两者差 5 分钟。已在三条线换乘站各贴一张提示。</p>
+            <span class="src">来源：合肥轨道官网公告栏，11-08 发布</span>
+          </li>
+          <li>
+            <time datetime="2026-11-08T09:05">今天 09:05</time>
+            <h4>折叠屏换屏价目牌新增「批次说明」</h4>
+            <p>华为授权店门口价目牌补了一行小字：屏幕批次 A/B 差价 180 元，工时费按 120 元/小时计。</p>
+            <span class="src">来源：门店价目牌实拍，11-08 复核</span>
+          </li>
+          <li>
+            <time datetime="2026-11-07T18:40">昨天 18:40</time>
+            <h4>短剧平台公开 10 月分账明细</h4>
+            <p>完播 30 秒口径下，单部剧分账从 8.6 万元变为 7.2 万元，制作方微信群里当天出现 40 余条异议记录。</p>
+            <span class="src">来源：平台创作者后台公示页</span>
+          </li>
+          <li>
+            <time datetime="2026-11-06T14:10">11-06 14:10</time>
+            <h4>成都成华区 12 个自提点合并为 7 个</h4>
+            <p>平台 App 订单页仍显示旧自提点，客服答复「48 小时内同步」，实际同步用了 6 天。</p>
+            <span class="src">来源：平台公告 + 用户订单截图</span>
+          </li>
+          <li>
+            <time datetime="2026-11-05T10:30">11-05 10:30</time>
+            <h4>四季度城市消费券发放规则调整</h4>
+            <p>满 200 减 30 改为满 199 减 25，使用范围新增便利店，有效期从 7 天缩至 5 天。</p>
+            <span class="src">来源：市商务局通知附件</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="panel" id="channel" aria-labelledby="chTitle">
+        <div class="panel-head">
+          <h2 id="chTitle">分类入口</h2>
+          <span class="meta">9 个频道 · 点击进栏目</span>
+        </div>
+        <p class="panel-lead">频道按「对象 + 动作」命名，方便直接搜到自己在追的那类事。</p>
+        <div class="chip-index">
+          <a class="chip" href="/#latest">折叠屏维修价 <em>18</em></a>
+          <a class="chip" href="/#latest">社区团购比价 <em>24</em></a>
+          <a class="chip" href="/#deep">短剧分账口径 <em>11</em></a>
+          <a class="chip" href="/#guide">地铁末班车 <em>9</em></a>
+          <a class="chip" href="/#guide">消费券使用 <em>16</em></a>
+          <a class="chip" href="/#rank">自提点变更 <em>7</em></a>
+          <a class="chip" href="/#news">授权维修点 <em>13</em></a>
+          <a class="chip" href="/#faq">保外判定 <em>6</em></a>
+          <a class="chip" href="/#pick">完播率统计 <em>8</em></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析（唯一主体阅读区） -->
+      <section class="panel deep" id="deep" aria-labelledby="deepTitle">
+        <div class="panel-head">
+          <h2 id="deepTitle">深度解析：把「今天更新了什么」拆成可核对的三层</h2>
+          <span class="meta">约 6 分钟读完</span>
+        </div>
+        <div class="deep-body">
+          <p>今天最容易被糊过去的一条，是短剧分账口径改动。平台说的是「更公平」，制作方群里说的是「少了 1.4 万元」。两句话都不算错，差别在统计对象：前者统计的是全部上线剧，后者只算自家那一部。</p>
+
+          <h3>一、口径前后对比：有效播放 → 完播 30 秒</h3>
+          <p>平台 10 月公示页把「有效播放」定义为播放 ≥5 秒，11 月改为「完播 ≥30 秒」。同一部 68 集短剧，后台显示总播放 214 万次，按旧口径计 168 万次有效播放，按新口径只剩 97 万次。分账金额从 8.6 万元变成 7.2 万元，差 1.4 万元，约 16.3%。</p>
+          <table class="judge-table">
+            <caption>判断拆分：三个可核对项</caption>
+            <thead>
+              <tr><th>核对项</th><th>旧口径</th><th>新口径</th><th>可核对来源</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>有效播放门槛</td><td>≥5 秒</td><td>≥30 秒</td><td>平台公示页版本对比（10-05 / 11-05）</td></tr>
+              <tr><td>单部剧计价</td><td class="ok">8.6 万元</td><td class="no">7.2 万元</td><td>创作者后台 10 月、11 月结算页</td></tr>
+              <tr><td>统计范围</td><td>全部上线剧</td><td>全部上线剧</td><td>公示页脚注一致，非范围收缩</td></tr>
+            </tbody>
+          </table>
+          <p>结论可以这样写：口径变严导致单部剧分账下降约 16%，但统计范围没缩水，所以「平台偷偷缩小分母」这一说法与公示页不符，属于转述偏差。</p>
+
+          <h3>二、折叠屏价差：工时费还是屏幕批次</h3>
+          <p>三家授权维修点对同一台 Mate X6 报出 4680 元、4810 元、4940 元。拆开单据看：屏幕总成三家都报 3980 元；工时费分别为 120 元/小时 ×2、120×2.5、120×3；剩下差额来自批次：A 批次加 180 元，B 批次不用加，C 点把 A 批次当默认件报价。</p>
+          <ul>
+            <li>授权维修点公示的是最高限价，不是实际成交价；</li>
+            <li>批次说明 11-08 才补上，此前价目牌没有这行小字；</li>
+            <li>旧件回收单是否抵扣，取决于是否选官方回收，三家里只有一家写进单据。</li>
+          </ul>
+          <p>所以「哪家便宜」这个问题问错了。要看的是：你要 A 批次还是 B 批次，选不选旧件回收，工时按整点还是半小时计。</p>
+
+          <div class="pullquote">
+            价差 260 元里，180 元是批次，80 元是工时取整。把两个变量混在一起比价，得到的排序换一批门店就翻。
+            <cite>—— 维修报价比对记录，11-08 14:00</cite>
+          </div>
+
+          <h3>三、自提点合并：公告、App、客服三个版本</h3>
+          <p>成都成华区 11-06 公告写「合并后保留 7 个自提点」，App 订单页在 11-06 至 11-11 仍显示 12 个旧地址。客服 11-06 答复「48 小时内同步」，实际到 11-11 才改完。用户看到的是三个版本并存，退款入口在订单页第二层，第一次进的人多半点不到。</p>
+          <p>这里事实、回应、推测要分开：事实是三个版本的时间差有截图；回应来自客服话术；推测是同步延迟与后端地址库缓存有关，平台未确认。把三者混写成一句「平台摆烂」，就丢掉了可核对的部分。</p>
+
+          <h3>四、商圈消费券：面额下降但使用面变宽</h3>
+          <p>满 200 减 30 改成满 199 减 25，表面看让利缩水 5 元。但新增便利店可用、使用门店从 312 家增至 487 家，单笔门槛也降 1 元。对只在便利店消费的人来说，可用性从 0 变成 1；对客单价 260 元的人来说，实付多了 5 元。这条不写「利好还是利空」，只列两组人各自的变化。</p>
+        </div>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="panel" id="guide" aria-labelledby="guideTitle">
+        <div class="panel-head">
+          <h2 id="guideTitle">体验指南：今天四条更新怎么亲自核一遍</h2>
+          <span class="meta">按步骤照做</span>
+        </div>
+        <ol class="steps">
+          <li>
+            <div>
+              <h4>查折叠屏维修价，先看批次再问工时</h4>
+              <p>进门先问「屏幕总成是 A 批次还是 B 批次」，再看价目牌右下角小字是否写了工时计费单位。两句话问完，报价差 260 元的来源就清楚了。</p>
+              <span class="note">耗时约 5 分钟 · 带手机 IMEI 后四位</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>核社区团购自提点，用订单页往前翻三层</h4>
+              <p>订单页 → 待取货 → 查看自提点 → 更多地址。旧地址不在这三层里出现，说明已切到新点；出现在第二层，说明缓存未清。</p>
+              <span class="note">退款入口在第三层，不在首页</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>看短剧分账，对照创作者后台的两个数</h4>
+              <p>后台「结算中心 — 分账明细」会同时给出播放量、完播量与分账额。把 10 月和 11 月的完播量并排放，差额超过 10% 的剧，回看公示页脚注有没有改。</p>
+              <span class="note">公示页版本号在页脚，两版都留档</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>地铁末班车，站厅公告优先于 App</h4>
+              <p>合肥轨道 3 号线周五、周六末班 23:40 写在 B 口公告，App 仍为 23:35。跨线换乘按站厅公告倒推，预留 6 分钟走行时间。</p>
+              <span class="note">三条换乘站均贴新提示，11-08 起执行</span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="panel" id="faq" aria-labelledby="faqTitle">
+        <div class="panel-head">
+          <h2 id="faqTitle">常见问题</h2>
+          <span class="meta">11 条常见疑问</span>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>折叠屏换内屏，授权维修点和第三方差多少？</summary>
+            <div class="ans">同一台 Mate X6，授权点屏幕总成报价 3980 元起，第三方常见 3100—3500 元，差价主要在总成来源与工时。第三方不提供旧件回收单，保外判定书也少一页，二手转卖时这两页会影响估价。</div>
+          </details>
+          <details>
+            <summary>短剧分账里的「完播 30 秒」是怎么算的？</summary>
+            <div class="ans">按单集计算，用户在该集停留 ≥30 秒记一次完播，跳过片头不算。68 集短剧里，第 1 集完播率通常最高，第 10 集之后掉得最快，所以新口径对长剧的分账影响比短剧大。</div>
+          </details>
+          <details>
+            <summary>社区团购自提点合并后，订单里的旧地址还能取货吗？</summary>
+            <div class="ans">11-06 之后下的单，取货码在新点生效，旧点已停止收货。11-06 之前下的单，取货码仍在旧点有效，但旧点只保留到 11-13，逾期未取自动退款。</div>
+          </details>
+          <details>
+            <summary>消费券改成满 199 减 25，之前领的还能用吗？</summary>
+            <div class="ans">11-05 之前领取的消费券按原规则执行，满 200 减 30，有效期不改。11-05 之后领取的按新规则，有效期从 7 天缩为 5 天，过期不补。</div>
+          </details>
+          <details>
+            <summary>地铁末班车延后，换乘站还赶得上吗？</summary>
+            <div class="ans">3 号线周五、周六末班 23:40，换乘 1 号线需步行 6 分钟，1 号线末班 23:38，实际赶不上。站厅 B 口公告建议改乘 2 号线，末班 23:45。</div>
+          </details>
+          <details>
+            <summary>授权维修点的价目牌算正式报价吗？</summary>
+            <div class="ans">价目牌是最高限价，实际成交可低不可高。工时费按整点还是半小时计，各点不同，11-08 之后补了批次说明，但工时计费单位仍要口头确认。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="panel" id="comments" aria-labelledby="cTitle">
+        <div class="panel-head">
+          <h2 id="cTitle">用户评论</h2>
+          <span class="meta">今日 6 条 · 已标注指向条目</span>
+        </div>
+        <ul class="comment-list">
+          <li class="comment">
+            <span class="avatar" aria-hidden="true">周</span>
+            <div>
+              <div class="c-head"><b>周屿</b><time datetime="2026-11-08T12:10">今天 12:10</time></div>
+              <p class="c-body"><span class="mention">那条折叠屏价差</span>我按步骤问了批次，店员先说「都一样的」，翻到价目牌小字才承认 A 批次加 180。这条有用，建议把工时计费单位也写进提问清单。</p>
+              <span class="c-like">有用 24</span>
+            </div>
+          </li>
+          <li class="comment">
+            <span class="avatar alt" aria-hidden="true">陈</span>
+            <div>
+              <div class="c-head"><b>陈默</b><time datetime="2026-11-08T11:02">今天 11:02</time></div>
+              <p class="c-body">短剧分账那段把 214 万播放和 97 万完播并排放，比只看百分比直观。不过 68 集里第 10 集之后掉得快，这个说法我还是想看到分集曲线，光一句话不好判断。</p>
+              <span class="c-like">有用 17</span>
+            </div>
+          </li>
+          <li class="comment">
+            <span class="avatar alt2" aria-hidden="true">吴</span>
+            <div>
+              <div class="c-head"><b>吴雨桐</b><time datetime="2026-11-08T09:48">今天 09:48</time></div>
+              <p class="c-body">自提点这个我在成华区碰上了，<span class="mention">11-06 的公告</span>贴在小区门口，App 里还是旧地址。客服说 48 小时，我等到 11-11 才变。中间的截图我留了，可以补给你们。</p>
+              <span class="c-like">有用 31</span>
+            </div>
+          </li>
+          <li class="comment">
+            <span class="avatar" aria-hidden="true">林</span>
+            <div>
+              <div class="c-head"><b>林致远</b><time datetime="2026-11-08T08:30">今天 08:30</time></div>
+              <p class="c-body">消费券改成满 199 减 25 这条，写得有点淡。对客单价 260 的人来说就是多付 5 元，对只买便利店的人反而从不能用变成能用。两种人感受差很大，建议单列。</p>
+              <span class="c-like">有用 12</span>
+            </div>
+          </li>
+          <li class="comment">
+            <span class="avatar alt" aria-hidden="true">阿</span>
+            <div>
+              <div class="c-head"><b>阿禾</b><time datetime="2026-11-07T22:15">昨天 22:15</time></div>
+              <p class="c-body">地铁末班延后，站厅公告和 App 差 5 分钟，这种事每个月都有。我更想知道跨线换乘到底怎么算，文中说 1 号线赶不上，那 2 号线 23:45 是哪个站的末班？</p>
+              <span class="c-like">有用 9</span>
+            </div>
+          </li>
+          <li class="comment">
+            <span class="avatar alt2" aria-hidden="true">许</span>
+            <div>
+              <div class="c-head"><b>许清和</b><time datetime="2026-11-07T20:03">昨天 20:03</time></div>
+              <p class="c-body">整体比那些只转发平台公告的强，但<span class="mention">短剧分账</span>那段「更公平」是平台原话还是转述，最好标一下。我看到的公示页没写「更公平」这三个字。</p>
+              <span class="c-like">有用 21</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="panel" id="news" aria-labelledby="newsTitle">
+        <div class="panel-head">
+          <h2 id="newsTitle">相关资讯</h2>
+          <span class="meta">近 5 天 · 8 条</span>
+        </div>
+        <ul class="news-list">
+          <li><time datetime="2026-11-08">11-08</time><a href="/#latest">合肥轨道 3 号线末班车延后，换乘站同步贴提示</a><span class="chan">城市生活</span></li>
+          <li><time datetime="2026-11-08">11-08</time><a href="/#pick">授权维修点价目牌补「屏幕批次说明」小字</a><span class="chan">科技产品</span></li>
+          <li><time datetime="2026-11-07">11-07</time><a href="/#deep">短剧平台公开 10 月分账，完播口径替换有效播放</a><span class="chan">文娱内容</span></li>
+          <li><time datetime="2026-11-06">11-06</time><a href="/#comments">成华区自提点合并为 7 个，App 地址 6 天后才同步</a><span class="chan">消费比价</span></li>
+          <li><time datetime="2026-11-05">11-05</time><a href="/#guide">四季度消费券改规则，门槛降 1 元、面额降 5 元</a><span class="chan">城市生活</span></li>
+          <li><time datetime="2026-11-04">11-04</time><a href="/#faq">保外判定书新增一页，二手估价参考项变化</a><span class="chan">科技产品</span></li>
+          <li><time datetime="2026-11-03">11-03</time><a href="/#rank">短剧完播率统计口径讨论会在线上举行</a><span class="chan">文娱内容</span></li>
+          <li><time datetime="2026-11-02">11-02</time><a href="/#channel">便利店接入消费券，单笔门槛同步下调</a><span class="chan">消费比价</span></li>
+        </ul>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="panel" id="related" aria-labelledby="relTitle">
+        <div class="panel-head">
+          <h2 id="relTitle">相关推荐</h2>
+          <span class="meta">按搜索词组织</span>
+        </div>
+        <div class="tag-cloud">
+          <a href="/#deep">折叠屏换屏价怎么比</a>
+          <a href="/#deep">短剧完播率统计规则</a>
+          <a href="/#guide">社区团购自提点查询</a>
+          <a href="/#faq">保外判定书是什么</a>
+          <a href="/#latest">消费券有效期缩短</a>
+          <a href="/#rank">授权维修点工时费</a>
+          <a href="/#guide">地铁末班车换乘时间</a>
+          <a href="/#news">短剧分账结算页</a>
+        </div>
+      </section>
+
+      <!-- 11 周榜 + 引语 -->
+      <section class="panel" id="rank" aria-labelledby="rankTitle">
+        <div class="panel-head">
+          <h2 id="rankTitle">本周核对榜：被点开最多的 5 条</h2>
+          <span class="meta">11-02 至 11-08</span>
+        </div>
+        <ol class="rank-list">
+          <li><span class="rk-name">自提点合并，App 地址延迟 6 天</span><span class="rk-meta">1,842 次</span><span class="rk-bar" aria-hidden="true"><i style="width:96%"></i></span></li>
+          <li><span class="rk-name">短剧分账口径对比表</span><span class="rk-meta">1,507 次</span><span class="rk-bar" aria-hidden="true"><i style="width:82%"></i></span></li>
+          <li><span class="rk-name">折叠屏内屏价差 260 元拆解</span><span class="rk-meta">1,233 次</span><span class="rk-bar" aria-hidden="true"><i style="width:68%"></i></span></li>
+          <li><span class="rk-name">消费券满 199 减 25 两类人变化</span><span class="rk-meta">986 次</span><span class="rk-bar" aria-hidden="true"><i style="width:54%"></i></span></li>
+          <li><span class="rk-name">地铁末班延后换乘倒推</span><span class="rk-meta">731 次</span><span class="rk-bar" aria-hidden="true"><i style="width:40%"></i></span></li>
+        </ol>
+        <div class="quote-card" style="margin-top:16px">
+          <blockquote>「我们不是嫌分账少，是嫌前后两个月的数放在一起没法比。口径变了，历史数据没重算。」</blockquote>
+          <div class="who"><b>短剧制作方 · 财务</b>，11-07 在创作者群内发言，经本人同意引用</div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 侧栏 -->
+    <aside class="side-col" aria-label="侧边栏">
+      <div class="side-card side-nav" id="sideNav">
+        <h2>栏目导航</h2>
+        <ul>
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#pick">精选推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channel">分类入口</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rank">本周核对榜</a></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h2>今日待核清单</h2>
+        <ul class="watch-list">
+          <li><b>屏幕批次 A/B 差价 180 元</b><span>三家授权点价目牌 · 11-08</span></li>
+          <li><b>自提点 12 → 7 的同步时间</b><span>公告 11-06，App 11-11 才改</span></li>
+          <li><b>完播 30 秒口径百分比</b><span>单部剧 -16.3%，范围未变</span></li>
+          <li><b>消费券有效期 7 天 → 5 天</b><span>11-05 起新券适用</span></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h2>数据说明</h2>
+        <p class="data-note">本文所有条目为<b>示例数据</b>，用于演示核对结构。数字、账号、门店名与平台页面为构造样本，不对应真实主体。快照时间统一为 2026-11-08 09:30。</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- 页脚 -->
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-name">今日看料</span>
+        <span class="brand-sub">每日更新 · 可核对</span>
+        <p>把一天里的规则变化、价目差、口径调整摆到同一张桌上，谁说的、几号说的、跟谁说不一样，逐条标出来。</p>
+      </div>
+      <div class="foot-col">
+        <h3>频道</h3>
+        <ul>
+          <li><a href="/#latest">折叠屏维修价</a></li>
+          <li><a href="/#latest">社区团购比价</a></li>
+          <li><a href="/#deep">短剧分账口径</a></li>
+          <li><a href="/#guide">地铁末班车</a></li>
+          <li><a href="/#guide">消费券使用</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>栏目</h3>
+        <ul>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#rank">本周核对榜</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>关于</h3>
+        <ul>
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+          <li><a href="/#channel">分类入口</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-mid">
+      <p><b>示例数据说明：</b>全站条目、金额、门店、账号与平台页面均为构造样本，用于演示核对结构，不指向真实主体；引用内容为示例，不对应现实中的组织与个人。</p>
+      <p><b>更新时间：</b>2026-11-08 12:30 · 对应正文可核对更新项：11-08 11:20 轨道末班公告、11-08 09:05 价目牌批次说明、11-07 18:40 分账公示、11-06 14:10 自提点合并。</p>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 今日看料 · 内容示例站点</span>
+      <span>全站为静态演示，无真实业务入口</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "今日看料",
+  "description": "今日看料每日更新，聚合科技产品、消费比价、文娱内容与城市生活的当日可核对条目。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "折叠屏换内屏，授权维修点和第三方差多少？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同一台 Mate X6，授权点屏幕总成报价 3980 元起，第三方常见 3100—3500 元，差价主要在总成来源与工时。第三方不提供旧件回收单，保外判定书也少一页。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "短剧分账里的「完播 30 秒」是怎么算的？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "按单集计算，用户在该集停留 ≥30 秒记一次完播，跳过片头不算。68 集短剧里第 1 集完播率最高，第 10 集之后下降最快。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "社区团购自提点合并后，订单里的旧地址还能取货吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "11-06 之后下的单，取货码在新点生效；11-06 之前下的单取货码仍在旧点有效，旧点保留到 11-13，逾期未取自动退款。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "消费券改成满 199 减 25，之前领的还能用吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "11-05 之前领取的消费券按原规则执行，满 200 减 30，有效期不改；11-05 之后领取的按新规则，有效期从 7 天缩为 5 天。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "地铁末班车延后，换乘站还赶得上吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3 号线周五、周六末班 23:40，换乘 1 号线需步行 6 分钟，1 号线末班 23:38，实际赶不上；站厅 B 口公告建议改乘 2 号线，末班 23:45。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "授权维修点的价目牌算正式报价吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "价目牌是最高限价，实际成交可低不可高。工时费按整点还是半小时计各点不同，2026-11-08 之后补了批次说明，但工时计费单位仍需口头确认。"
+      }
+    }
+  ]
+}
+</script>
+<script>
+(function(){
+  var menuBtn = document.getElementById('menuBtn');
+  var mainNav = document.getElementById('mainNav');
+  var form = document.getElementById('searchForm');
+  var input = document.getElementById('searchInput');
+  var feedback = document.getElementById('searchFeedback');
+  var toTop = document.getElementById('toTop');
+  var sideLinks = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.main-nav a'));
+
+  function closeMenu(){
+    mainNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded','false');
+  }
+  menuBtn.addEventListener('click', function(){
+    var open = mainNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mainNav.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') { closeMenu(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+      closeMenu();
+      menuBtn.focus();
+    }
+  });
+  document.addEventListener('click', function(e){
+    if (mainNav.classList.contains('open') &&
+        !mainNav.contains(e.target) && !menuBtn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  /* 站内本地搜索 */
+  function clearMarks(){
+    var marks = document.querySelectorAll('mark[data-search]');
+    for (var i = 0; i < marks.length; i++) {
+      var m = marks[i];
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    }
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    clearMarks();
+    var q = (input.value || '').trim();
+    if (!q) {
+      feedback.textContent = '请输入要查找的条目关键词，例如「折叠屏」「自提点」「完播」。';
+      feedback.classList.add('show');
+      return;
+    }
+    if (q.length < 2) {
+      feedback.textContent = '关键词至少两个字，再试一次。';
+      feedback.classList.add('show');
+      return;
+    }
+    var main = document.querySelector('main');
+    var text = main.textContent || '';
+    var count = text.split(q).length - 1;
+    if (count === 0) {
+      feedback.textContent = '没有找到与「' + q + '」相关的内容。可试试：折叠屏维修价、自提点合并、完播 30 秒、消费券、末班车。';
+      feedback.classList.add('show');
+      return;
+    }
+    /* 在正文可搜索节点中做简单高亮 */
+    var candidates = document.querySelectorAll('main p, main h2, main h3, main h4, main a, main summary, main li');
+    var done = 0;
+    for (var i = 0; i < candidates.length && done < 30; i++) {
+      var el = candidates[i];
+      if (el.querySelector('mark[data-search]')) continue;
+      walk(el, q);
+      done++;
+    }
+    feedback.textContent = '在正文中找到 ' + count + ' 处「' + q + '」，已高亮显示，可向上滚动查看。';
+    feedback.classList.add('show');
+    var first = document.querySelector('mark[data-search]');
+    if (first) {
+      first.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  });
+  function walk(node, q){
+    var children = Array.prototype.slice.call(node.childNodes);
+    children.forEach(function(child){
+      if (child.nodeType === 3) {
+        var idx = child.nodeValue.indexOf(q);
+        if (idx === -1) return;
+        var range = document.createRange();
+        range.setStart(child, idx);
+        range.setEnd(child, idx + q.length);
+        var mark = document.createElement('mark');
+        mark.setAttribute('data-search','1');
+        mark.style.background = '#f6d98a';
+        mark.style.color = '#12283a';
+        mark.style.padding = '0 1px';
+        mark.style.borderRadius = '2px';
+        range.surroundContents(mark);
+      } else if (child.nodeType === 1 && !/^(SCRIPT|STYLE|MARK)$/.test(child.tagName)) {
+        walk(child, q);
+      }
+    });
+  }
+
+  /* 回到顶部 */
+  var ticking = false;
+  function onScroll(){
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if (y > 420) { toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+    /* 侧栏高亮 */
+    var current = null;
+    for (var i = 0; i < sideLinks.length; i++) {
+      var id = sideLinks[i].getAttribute('href').replace('/#','');
+      var sec = document.getElementById(id);
+      if (sec && sec.getBoundingClientRect().top <= 140) { current = sideLinks[i]; }
+    }
+    for (var j = 0; j < sideLinks.length; j++) { sideLinks[j].classList.remove('current'); }
+    if (current) { current.classList.add('current'); }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
+
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 平滑滚动，预留吸顶高度 */
+  var annH = 40, headH = 62;
+  function offsetTop(){
+    var a = document.querySelector('.ann-bar');
+    var h = document.querySelector('.site-head');
+    annH = a ? a.offsetHeight : 40;
+    headH = h ? h.offsetHeight : 62;
+    return annH + headH + 12;
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="/#"]') : null;
+    if (!a) return;
+    var id = a.getAttribute('href').slice(2);
+    var target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    var top = target.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - offsetTop();
+    if (top < 0) top = 0;
+    window.scrollTo({top: top, behavior: 'smooth'});
+    if (history.replaceState) { history.replaceState(null, '', '/#' + id); }
+  });
+
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 720) { closeMenu(); }
+  });
+})();
+</script>
+</body>
+  </html>
